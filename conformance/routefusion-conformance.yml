@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: derived
+source: Routefusion API reference (docs.routefusion.com)
+standards:
+- id: graphql
+  conforms: true
+  evidence: API is served over GraphQL with typed queries/mutations and an errors array.
+- id: oauth2
+  conforms: false
+  evidence: Authentication is a static bearer API key, not OAuth2.
+- id: oidc
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use the GraphQL errors envelope (message/path/extensions.code),
+    not application/problem+json.
+- id: webhook-signing-ed25519
+  conforms: true
+  evidence: All webhook payloads are signed with Ed25519 for integrity verification.
+- id: rest
+  conforms: false
+  evidence: No REST/OpenAPI surface; single GraphQL endpoint.
+notes:
+- This is a derived conformance assessment from public docs; no published third-party
+  certification program (SOC 2 / ISO 27001 / PCI) was found on Routefusion's public
+  surface, so no Compliance pointer is asserted.

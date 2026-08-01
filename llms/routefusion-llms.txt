@@ -1,0 +1,125 @@
+# Routefusion Docs Documentation
+
+> Documentation for Routefusion Docs
+
+## Guides
+- [Send Your First Payment with V2](https://docs.routefusion.com/docs/send-your-first-payment-v2.md): Create an entity, open a wallet, discover beneficiary requirements with V2, and submit your first Routefusion payment.
+- [Account Creation](https://docs.routefusion.com/docs/create-account.md)
+- [Create a Transfer](https://docs.routefusion.com/docs/create-a-transfer-1.md)
+
+## API Reference
+- [Getting Started](https://docs.routefusion.com/reference/getting-started-with-your-api.md): This page will help you get started with Routefusion API.
+- [GraphQL](https://docs.routefusion.com/reference/graphql.md)
+- [Postman](https://docs.routefusion.com/reference/postman.md)
+- [Glossary](https://docs.routefusion.com/reference/glossary.md): Common terms in the Routefusion ecosystem
+- [Accounts](https://docs.routefusion.com/reference/accounts.md): The different accounts Routefusion offers
+- [Dedicated FDIC accounts](https://docs.routefusion.com/reference/dedicated-accounts.md)
+- [Virtual reconciliation accounts](https://docs.routefusion.com/reference/virtual-reconciliation-accounts.md)
+- [Shared accounts](https://docs.routefusion.com/reference/shared-accounts.md)
+- [Payments](https://docs.routefusion.com/reference/currency-coverage.md): Payout coverage for local, SWIFT, and wire
+- [Local Payments](https://docs.routefusion.com/reference/local-payments.md)
+- [Coverage](https://docs.routefusion.com/reference/coverage.md)
+- [SWIFT/Wires](https://docs.routefusion.com/reference/swiftwires.md)
+- [Coverage](https://docs.routefusion.com/reference/coverage-1.md)
+- [Real time](https://docs.routefusion.com/reference/real-time.md)
+- [Coverage](https://docs.routefusion.com/reference/coverage-2.md)
+- [International USD](https://docs.routefusion.com/reference/international-usd.md)
+- [API URLs](https://docs.routefusion.com/reference/urls.md): Sandbox and Production Urls
+- [Authentication](https://docs.routefusion.com/reference/authentication.md)
+- [Users](https://docs.routefusion.com/reference/users.md)
+- [Schema](https://docs.routefusion.com/reference/users-schema.md): Schema definition for User object
+- [Queries](https://docs.routefusion.com/reference/queries.md)
+- [myUser](https://docs.routefusion.com/reference/my-user.md)
+- [organization Users](https://docs.routefusion.com/reference/organization-users.md): The organizationUsers query returns an array of UserAccounts with full pagination control with the listFilter parameter.
+- [user](https://docs.routefusion.com/reference/user.md): Get user details.
+- [Mutations](https://docs.routefusion.com/reference/mutations-1.md)
+- [createUser](https://docs.routefusion.com/reference/create-user.md): The createUser mutation allows an admin to create a new user within their organization. This action requires an admin token.
+- [Entities](https://docs.routefusion.com/reference/entities.md)
+- [Schema](https://docs.routefusion.com/reference/entity-schema.md): GraphQL schema for entity
+- [Queries](https://docs.routefusion.com/reference/query.md)
+- [representativeRequiredFields](https://docs.routefusion.com/reference/representative-required-fields.md)
+- [entityRequiredFields](https://docs.routefusion.com/reference/entity-required-fields.md)
+- [verifiedOrganizationEntities](https://docs.routefusion.com/reference/verified-organization-entities.md): The verifiedOrganizationEntities query fetches all entities under the organization that are verified.
+- [organizationEntities](https://docs.routefusion.com/reference/organization-entities.md): The organizationEntities query fetches all entities under the organization.
+- [entitiesPage](https://docs.routefusion.com/reference/entities-page.md): The entitiesPage query fetches and returns all entities that match the provided filter(s)
+- [userEntities](https://docs.routefusion.com/reference/user-entities.md): The userEntities query fetches and returns all entities under the management of the user.
+- [entity](https://docs.routefusion.com/reference/entity.md): The entity query fetches data for a single entity.
+- [Mutations](https://docs.routefusion.com/reference/mutations.md)
+- [singleUpload](https://docs.routefusion.com/reference/entity-file-upload.md): This request spec does not communicate well in these docs. We recommend you use an Apollo client to make this query. However, if you chose not to use an Apollo client we recommend you review the [Routefusion Postman collection](https://documenter.getpostman.com/view/2597780/TzCV3Q8u) when developing this query yourself.
+- [finalizeEntity](https://docs.routefusion.com/reference/finalize-entity.md): Indicates the entity is ready to execute the onboarding process. Once the entity is finalized, Routefusion will send the entity through the necessary compliance reviews. The entity will immediately move to a pending state after finalizing.
+- [createBusinessEntity](https://docs.routefusion.com/reference/create-business-entity.md): The createBusinessEntity mutation creates an entity with a type of business. This will enable a business to create beneficiaries and transfers.
+- [updateRepresentative](https://docs.routefusion.com/reference/update-representative.md): The createRepresentative mutation creates a representative of a business entity.
+- [createRepresentative](https://docs.routefusion.com/reference/create-representative.md): The createRepresentative mutation creates a representative of a business entity.
+- [updateBusinessEntity](https://docs.routefusion.com/reference/update-business-entity.md): Interacts like a PATCH request. Takes the id of the entity and the fields of the data you wish to update and only updates the fields passed to the mutation.
+- [createPersonalEntity](https://docs.routefusion.com/reference/create-personal-entity.md)
+- [deleteRepresentative](https://docs.routefusion.com/reference/delete-representative.md): Removes a representative from an entity. This may only be done before finalizing the entity.
+- [Wallets](https://docs.routefusion.com/reference/accounts-1.md)
+- [Queries](https://docs.routefusion.com/reference/queries-6.md)
+- [walletFundingInstructions](https://docs.routefusion.com/reference/wallet-funding-instructions.md): The walletFundingInstructions query fetches the instructions required to send a bank payment to the wallet.
+- [organizationEntityWallets](https://docs.routefusion.com/reference/organization-entity-wallets.md): The organizationEntityWallets query fetches all wallet data for a single organization.
+- [entityWallets](https://docs.routefusion.com/reference/entity-wallets.md): The entityWallets query fetches data for a single entity.
+- [wallet](https://docs.routefusion.com/reference/wallet.md): The wallet query fetches data for a single wallet.
+- [Schema](https://docs.routefusion.com/reference/wallet-schema.md)
+- [Mutations](https://docs.routefusion.com/reference/mutations-6.md)
+- [addBalanceToWallet](https://docs.routefusion.com/reference/sandbox-add-balance-to-wallet.md): The addBalanceToWallet mutation adds the given amount to the wallet balance. This endpoint is only available in the SANDBOX environment.
+- [createWallet](https://docs.routefusion.com/reference/create-wallet.md): The createWallet mutation creates a new wallet on a single entity.
+- [Virtual Accounts](https://docs.routefusion.com/reference/virtual-accounts-1.md)
+- [Queries](https://docs.routefusion.com/reference/queries-5.md)
+- [organizationVirtualAccountsPage](https://docs.routefusion.com/reference/organization-virtual-accounts-page.md): The organizationVirtualAccountsPage query will return paginated results for virtual accounts associated with the requesting user's organization ID.
+- [Mutations](https://docs.routefusion.com/reference/mutations-5.md)
+- [createVirtualAccount](https://docs.routefusion.com/reference/create-virtual-account.md): The createVirtualAccount creates a new virtual account. This represents a sub account under a main currency account and relates to a single entity.
+- [Beneficiaries](https://docs.routefusion.com/reference/beneficiaries.md)
+- [Schema](https://docs.routefusion.com/reference/graphql-schema.md)
+- [Queries](https://docs.routefusion.com/reference/queries-1.md)
+- [resourceCorridors](https://docs.routefusion.com/reference/resource-corridors.md): **DEPRECATED**
+- [resourceCorridorsV2](https://docs.routefusion.com/reference/resource-corridors-v2.md): Fetch all available corridors. The response of this query will return all countries, and currencies you can create beneficiaries in. It will also respond with the type of beneficiaries that are supported in the corridor, and the payment methods available.
+- [beneficiaryRequiredFields](https://docs.routefusion.com/reference/beneficiary-required-fields.md): **DEPRECATED** The beneficiaryRequiredFields query fetches the required fields for successful beneficiary creation on any given corridor.
+- [beneficiaryRequiredFieldsV2](https://docs.routefusion.com/reference/beneficiary-required-fields-v2.md): The beneficiaryRequiredFields query fetches the required fields for successful beneficiary creation on any given corridor.
+- [beneficiariesPage](https://docs.routefusion.com/reference/beneficiaries-page.md): The beneficiariesPage query fetches all beneficiaries that belong to your organization paginated by the specified pages and search filters.
+- [entityBeneficiaries](https://docs.routefusion.com/reference/entity-beneficiaries.md): The beneficiary query fetches a single beneficiary.
+- [beneficiary](https://docs.routefusion.com/reference/beneficiary.md): The beneficiary query fetches a single beneficiary.
+- [Mutations](https://docs.routefusion.com/reference/mutations-2.md)
+- [updateBusinessBeneficiary](https://docs.routefusion.com/reference/update-business-beneficiary.md): The updateBusinessBeneficiary mutation updates the fields on a business beneficiary that was previously created.
+- [updatePersonalBeneficiary](https://docs.routefusion.com/reference/update-personal-beneficiary.md): The updatePersonalBeneficiary mutation updates the fields on a personal beneficiary that was previously created.
+- [createBusinessBeneficiary](https://docs.routefusion.com/reference/create-business-beneficiary.md): The createBusinessBeneficiary mutation creates a business beneficiary which can receive payments from an entity.
+- [createPersonalBeneficiary](https://docs.routefusion.com/reference/create-personal-beneficiary.md): The createPersonalBeneficiary mutation creates a personal beneficiary which can receive payments from an entity.
+- [Transfers](https://docs.routefusion.com/reference/transfers.md)
+- [States](https://docs.routefusion.com/reference/states.md)
+- [Fees](https://docs.routefusion.com/reference/fees.md)
+- [Purpose of Payment](https://docs.routefusion.com/reference/purpose-of-payment.md): Available purpose-of-payment enum values with concise inferred definitions.
+- [Schema](https://docs.routefusion.com/reference/transfer-schema.md)
+- [Queries](https://docs.routefusion.com/reference/queries-3.md)
+- [transferReceipt](https://docs.routefusion.com/reference/transfer-receipt.md): The transferReceipt query will return a  link to a pdf receipt for the transfer
+- [transfers](https://docs.routefusion.com/reference/transfer-copy.md): The transfers query fetches all transfers for an organization with pagination control through the listFilter object. You can include some search terms (id, entity_id,organization_id,..etc) using search_terms string.
+- [transfer](https://docs.routefusion.com/reference/transfer.md): The transfer query fetches and returns a single transfer.
+- [Mutations](https://docs.routefusion.com/reference/mutations-4.md)
+- [createTransfer](https://docs.routefusion.com/reference/create-transfer.md): The createTransfer mutation accepts initial data for transfer. This does not initiate the transfer.
+- [createWalletTransfer](https://docs.routefusion.com/reference/create-wallet-transfer.md): The createWalletTransfer mutation creates a transfer to move funds from one wallet to another. finalizeWalletTransfer must be called to execute the transfer. **getTransferQuote must be called in the wallet to wallet transfer flow.**
+- [finalizeTransfer](https://docs.routefusion.com/reference/finalize-transfer.md): The finalizeTransfer initiates the execution of the transfer.
+- [finalizeWalletTransfer](https://docs.routefusion.com/reference/finalize-wallet-transfer.md): The finalizeWalletTransfer mutation executes the wallet to wallet transfer.
+- [getTransferQuote](https://docs.routefusion.com/reference/get-transfer-quote.md): The getTransferQuote mutation locks in a rate for a transfer for a limited amount of time.
+- [updateTransfer](https://docs.routefusion.com/reference/update-transfer.md): The updateTransfer mutation allows you to update any attribute of the transfer before finalizing.
+- [Sandbox - changeTransferState](https://docs.routefusion.com/reference/changetransferstate.md): The changeTransferState allows for setting the state of a transfer in sandbox to mimic production workflows. This will fire the appropriate the webhook.
+- [upload-transfer-document](https://docs.routefusion.com/reference/upload-transfer-document.md)
+- [Rates](https://docs.routefusion.com/reference/rates.md)
+- [Queries](https://docs.routefusion.com/reference/queries-4.md)
+- [getMidMarketRate](https://docs.routefusion.com/reference/get-mid-market-rate.md): The getMidMarketRate query fetches the current mid-market rate for a currency pair. This does not lock a rate for a transfer. You can lock a rate with the getTransferQuote mutation.
+- [getRate](https://docs.routefusion.com/reference/get-rate.md): The getRate query fetches the current rate for a currency pair. This does not lock a rate for a transfer. You can lock a rate with the getTransferQuote mutation.
+- [Incoming Transfers](https://docs.routefusion.com/reference/incoming-transfers.md)
+- [States](https://docs.routefusion.com/reference/incoming-transfer-states.md)
+- [incomingTransfer](https://docs.routefusion.com/reference/incomingtransfer.md): Grab the details of a single incoming transfer.
+- [incomingTransfersPage](https://docs.routefusion.com/reference/incoming-transfers-page.md): The incomingTransfersPage query will return paginated results for incoming transfers (credits) associated with the requesting user's organization ID.
+- [Sandbox - sandboxMockIncomingTransfer](https://docs.routefusion.com/reference/sandbox-sandboxmockincomingtransfer.md): The sandboxMockIncomingTransfer allows you to simulate incoming transfer in the sandbox environment.
+- [Schema](https://docs.routefusion.com/reference/webhooks-schema.md)
+- [Body Verification (validate signature)](https://docs.routefusion.com/reference/webhook-integrity-verification.md): Routefusion signs all webhook payloads using Ed25519, allowing you to verify that a webhook was sent by Routefusion and that the body was not tampered with in transit.
+- [Mutations](https://docs.routefusion.com/reference/mutations-3.md)
+- [disableWebhookSubscription](https://docs.routefusion.com/reference/disable-webhook-subscription.md): The disableWebhookSubscription mutation disable a previous configured webhook
+- [createWebhookSubscription](https://docs.routefusion.com/reference/create-webhook-subscription.md): The createWebhookSubscription mutation accepts the required data to configure the webhook
+- [subscriptions](https://docs.routefusion.com/reference/subscriptions.md): Fetch a list of active subscriptions
+- [Schema](https://docs.routefusion.com/reference/schema-3.md)
+- [Queries](https://docs.routefusion.com/reference/queries-2.md)
+- [findBank](https://docs.routefusion.com/reference/findbank.md): The findBank query fetches and returns a single bank that matches the given routing information. Note: One of (iban, swift_bic) required.
+- [Errors](https://docs.routefusion.com/reference/errors.md)
+- [Account Creation](https://docs.routefusion.com/reference/multi-currency-account-creation.md)
+- [USDC Prefunding](https://docs.routefusion.com/reference/usdc-prefunding.md)
+- [Create a Transfer](https://docs.routefusion.com/reference/create-a-transfer.md)

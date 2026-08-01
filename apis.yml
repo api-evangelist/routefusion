@@ -1,8 +1,14 @@
 aid: routefusion
 name: Routefusion
-description: 'Routefusion is a company surfaced as a portfolio company of initialized-capital and added
-  to the API Evangelist network as a stub for enrichment. Sector: fintech. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: 'Routefusion is a global payments infrastructure platform that lets platforms,
+  fintechs, and marketplaces move money across borders through a single GraphQL API.
+  It supports payouts to 180+ countries over SWIFT, local rails, and stablecoin (USDC),
+  non-resident and FDIC/virtual accounts in multiple currencies, multi-currency wallets,
+  FX rate locking and quotes, beneficiary and entity onboarding with compliance review,
+  incoming-transfer reconciliation, and Ed25519-signed webhooks. The API is GraphQL
+  over HTTPS with bearer-token authentication and a full sandbox environment. This
+  profile was added to the API Evangelist network as a portfolio company of Initialized
+  Capital and enriched from Routefusion''s public developer documentation.'
 url: https://raw.githubusercontent.com/api-evangelist/routefusion/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,18 +16,129 @@ x-backed-by:
 - initialized-capital
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+image: https://routefusion.com/images/routefusion-logo.png
 tags:
 - Company
 - Fintech
-apis: []
+- Payments
+- Cross-Border Payments
+- Global Payments
+- FX
+- Wallets
+- GraphQL
+- Stablecoin
+apis:
+- name: Routefusion GraphQL API
+  description: 'Routefusion''s global payments GraphQL API: users, entities, wallets,
+    virtual accounts, beneficiaries, transfers, quotes/rates, incoming transfers, and
+    webhooks for cross-border payouts over SWIFT, local rails, and USDC.'
+  humanURL: https://docs.routefusion.com/reference/getting-started-with-your-api
+  baseURL: https://external.routefusion.com/graphql
+  tags:
+  - Payments
+  - Cross-Border Payments
+  - GraphQL
+  - FX
+  properties:
+  - type: GraphQL
+    url: https://external.routefusion.com/graphql
+  - type: Authentication
+    url: authentication/routefusion-authentication.yml
+  - type: Webhooks
+    url: asyncapi/routefusion-webhooks.yml
+  - type: ErrorCatalog
+    url: errors/routefusion-problem-types.yml
+  - type: DataModel
+    url: data-model/routefusion-data-model.yml
+  - type: Conventions
+    url: conventions/routefusion-conventions.yml
+  - type: Lifecycle
+    url: lifecycle/routefusion-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/routefusion-sandbox.yml
+  - type: MCPServer
+    url: mcp/routefusion-mcp.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1
 common:
 - type: Website
   url: https://routefusion.com/
+- type: DeveloperPortal
+  url: https://docs.routefusion.com/
+- type: Documentation
+  url: https://docs.routefusion.com/
+- type: APIReference
+  url: https://docs.routefusion.com/reference/getting-started-with-your-api
+- type: GettingStarted
+  url: https://docs.routefusion.com/docs/send-your-first-payment-v2
+- type: Blog
+  url: https://routefusion.com/blog
+- type: GitHubOrganization
+  url: https://github.com/routefusion
+- type: StatusPage
+  url: https://status.routefusion.com
+- type: Support
+  url: https://routefusion.com/contact
+- type: Login
+  url: https://accounts.routefusion.com/
+- type: TermsOfService
+  url: https://routefusion.com/legal/terms
+- type: PrivacyPolicy
+  url: https://routefusion.com/legal/privacy
+- type: Postman
+  url: https://documenter.getpostman.com/view/2597780/TzCV3Q8u
+- type: SDKs
+  url: packages/routefusion-packages.yml
+- type: Packages
+  url: packages/routefusion-packages.yml
+- type: Webhooks
+  url: asyncapi/routefusion-webhooks.yml
+- type: Authentication
+  url: authentication/routefusion-authentication.yml
+- type: Sandbox
+  url: sandbox/routefusion-sandbox.yml
+- type: Conventions
+  url: conventions/routefusion-conventions.yml
+- type: ErrorCatalog
+  url: errors/routefusion-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/routefusion-lifecycle.yml
+- type: Deprecation
+  url: lifecycle/routefusion-lifecycle.yml
+- type: DataModel
+  url: data-model/routefusion-data-model.yml
+- type: Conformance
+  url: conformance/routefusion-conformance.yml
+- type: MCPServer
+  url: mcp/routefusion-mcp.yml
+- type: LLMsTxt
+  url: llms/routefusion-llms.txt
+- type: WellKnown
+  url: well-known/routefusion-well-known.yml
+- type: DomainSecurity
+  url: security/routefusion-domain-security.yml
+- type: AgentSkill
+  url: skills/_index.yml

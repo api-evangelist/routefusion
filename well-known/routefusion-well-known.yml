@@ -1,0 +1,22 @@
+generated: '2026-07-21'
+method: searched
+source: live probes of /.well-known/* on Routefusion hosts
+hosts:
+- https://routefusion.com
+- https://docs.routefusion.com
+- https://external.routefusion.com
+documents:
+- {host: routefusion.com, path: /.well-known/security.txt, status: 404}
+- {host: routefusion.com, path: /.well-known/openid-configuration, status: 404}
+- {host: routefusion.com, path: /.well-known/oauth-authorization-server, status: 404}
+- {host: routefusion.com, path: /.well-known/api-catalog, status: 404}
+- {host: routefusion.com, path: /.well-known/ai-plugin.json, status: 404}
+- {host: docs.routefusion.com, path: /.well-known/security.txt, status: 404}
+- {host: docs.routefusion.com, path: /.well-known/openid-configuration, status: 404}
+- {host: docs.routefusion.com, path: /.well-known/oauth-authorization-server, status: 404}
+- {host: docs.routefusion.com, path: /.well-known/api-catalog, status: 404}
+- {host: docs.routefusion.com, path: /.well-known/ai-plugin.json, status: 404}
+- {host: external.routefusion.com, path: /.well-known/security.txt, status: 000, note: no HTTP on API host (GraphQL only)}
+notes: No /.well-known/ discovery documents are published. Auth is a static bearer
+  API key (not OAuth/OIDC), so no openid-configuration or oauth-authorization-server
+  is expected.

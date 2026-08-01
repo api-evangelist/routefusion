@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.routefusion.com/reference/authentication
+docs: https://docs.routefusion.com/reference/authentication
+summary:
+  types: [http]
+  scheme: bearer
+  api_key_in: [header]
+  oauth2_flows: []
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  in: header
+  header: Authorization
+  format: 'Authorization: Bearer ${token}'
+  description: A static API key presented as an HTTP bearer token on every GraphQL
+    request. Tokens are issued by Routefusion on request (email customersuccess@routefusion.com);
+    there is no self-service OAuth flow.
+  token_issuance: manual
+  token_contact: customersuccess@routefusion.com
+notes:
+- The same bearer credential authenticates all GraphQL queries and mutations; some
+  admin actions (e.g. createUser) additionally require the caller's user to have the
+  admin role within their organization.
+- Separate sandbox and production tokens/endpoints exist (see sandbox/ and lifecycle/).

@@ -1,0 +1,15 @@
+generated: '2026-07-21'
+method: generated
+api: https://external.routefusion.com/graphql
+source: Routefusion GraphQL API reference (docs.routefusion.com)
+skills:
+- file: routefusion-send-first-payment.md
+  name: Send your first cross-border payment
+  api: https://external.routefusion.com/graphql
+  operations: [createBusinessEntity, finalizeEntity, createWallet, resourceCorridorsV2,
+    beneficiaryRequiredFieldsV2, createBusinessBeneficiary, getTransferQuote,
+    createTransfer, finalizeTransfer]
+- file: routefusion-webhooks-setup.md
+  name: Subscribe to and verify webhooks
+  api: https://external.routefusion.com/graphql
+  operations: [createWebhookSubscription, subscriptions, disableWebhookSubscription]

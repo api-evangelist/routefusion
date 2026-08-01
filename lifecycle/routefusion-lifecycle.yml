@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.routefusion.com/ + https://status.routefusion.com
+versioning:
+  scheme: operation-suffix
+  note: Breaking changes ship as new, suffixed GraphQL operations (e.g. resourceCorridorsV2,
+    beneficiaryRequiredFieldsV2) rather than a global API version. Guides reference
+    a "V2" payment flow.
+  current: v2
+  docs: https://docs.routefusion.com/reference/graphql
+deprecation:
+  policy: Superseded operations are marked DEPRECATED in the API reference and kept
+    live alongside their V2 replacements.
+  docs: https://docs.routefusion.com/reference/graphql
+deprecated_operations:
+- name: resourceCorridors
+  replaced_by: resourceCorridorsV2
+  docs: https://docs.routefusion.com/reference/resource-corridors
+- name: beneficiaryRequiredFields
+  replaced_by: beneficiaryRequiredFieldsV2
+  docs: https://docs.routefusion.com/reference/beneficiary-required-fields
+status_page: https://status.routefusion.com
+transfer_states:
+  docs: https://docs.routefusion.com/reference/states
+  values: [Accepted, Finalized, Initiated, Processing, Sent, Completed, Canceled,
+    Returned, Failed, Scheduled, In Review]

@@ -1,0 +1,32 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/routefusion + npm registry + pkg.go.dev
+packages:
+- language: javascript
+  registry: npm
+  name: routefusion-sdk
+  url: https://www.npmjs.com/package/routefusion-sdk
+  install: npm install routefusion-sdk
+  version: 2.12.0
+  official: true
+  repo: https://github.com/routefusion/routefusion-node
+  status: archived
+  note: Node.js SDK for the Routefusion API (repo archived; published on npm as routefusion-sdk).
+- language: go
+  registry: pkg.go.dev
+  name: github.com/routefusion/routefusion-golang
+  url: https://pkg.go.dev/github.com/routefusion/routefusion-golang
+  install: go get github.com/routefusion/routefusion-golang
+  official: true
+  repo: https://github.com/routefusion/routefusion-golang
+  status: archived
+  note: Go client library for the Routefusion API (repo archived).
+samples:
+- language: typescript
+  name: routefusion-sample-ts
+  url: https://github.com/routefusion/routefusion-sample-ts
+  note: Sample implementation using TypeScript and Node.js (not a distributed package).
+- language: javascript
+  name: Routefusion-guides
+  url: https://github.com/routefusion/Routefusion-guides
+  note: Guide/example code repository.

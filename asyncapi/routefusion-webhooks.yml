@@ -1,0 +1,50 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.routefusion.com/reference/webhooks-schema
+spec_type: Webhooks
+delivery: HTTP POST to a subscriber-configured URL
+security:
+  signature: Ed25519
+  verification_docs: https://docs.routefusion.com/reference/webhook-integrity-verification
+  description: Routefusion signs all webhook payloads using Ed25519 so subscribers can
+    verify authenticity and that the body was not tampered with in transit.
+management:
+  create: createWebhookSubscription
+  disable: disableWebhookSubscription
+  list: subscriptions
+  docs: https://docs.routefusion.com/reference/create-webhook-subscription
+subscription_types:
+- name: transfer
+  description: Outgoing transfer state changes.
+  payload_fields: [subscription_type, id, user_id, entity_id, beneficiary_id, wallet_id,
+    state, fee, fee_usd, source_amount, source_currency, destination_amount,
+    destination_currency, purpose_of_payment, rate, reference, created_date,
+    expected_delivery_date, funding_instructions, payment_method,
+    scheduled_delivery_date, wire]
+- name: entity
+  description: Entity onboarding / state changes.
+  payload_fields: [subscription_type, id, type, business_name, created_date, state,
+    first_name, last_name, email, phone, phone_country, address1, address2, city,
+    state_province_region, postal_code, country, user_id, representatives]
+- name: incoming_transfer
+  description: Inbound transfer (credit) events.
+  payload_fields: [subscription_type, id, entity_id, wallet_id, currency, credit,
+    amount, transaction_date, reference, counterparty_name, account_number,
+    name_on_bank_account, nicename_on_bank_account, state, payment_method,
+    purpose_of_payment, updated_date, created_date, senders_bank, trace,
+    enriched_payment_data]
+- name: wallet
+  description: Wallet balance / state changes.
+  payload_fields: [subscription_type, available_balance, balance, country,
+    created_date, currency, entity, id, organization, representative_currency,
+    state, suspended, updated_date]
+- name: beneficiary
+  description: Beneficiary create/update events.
+  payload_fields: [subscription_type, id, entity, creator, type, email, phone,
+    tax_number, first_name, last_name, business_name, name_on_bank_account,
+    swift_bic, account_type, account_number, routing_code, currency, bank_name,
+    country, changes_required]
+- name: rfi
+  description: Request-for-information (compliance) events.
+  payload_fields: [subscription_type, id, resource_type, resource_id,
+    organization_id, status, responded_on, created_date, updated_date, details]

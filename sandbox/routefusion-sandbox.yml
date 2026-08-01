@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.routefusion.com/reference/urls + Routefusion API reference
+environments:
+- name: sandbox
+  graphql_url: https://sandbox.external.routefusion.com/graphql
+  description: Full sandbox environment mirroring production workflows; uses separate
+    sandbox API tokens.
+- name: production
+  graphql_url: https://external.routefusion.com/graphql
+sandbox_only_operations:
+- name: addBalanceToWallet
+  kind: mutation
+  docs: https://docs.routefusion.com/reference/sandbox-add-balance-to-wallet
+  description: Adds a given amount to a wallet balance so transfers can be tested.
+    Only available in the SANDBOX environment.
+- name: changeTransferState
+  kind: mutation
+  docs: https://docs.routefusion.com/reference/changetransferstate
+  description: Sets the state of a transfer in sandbox to mimic production workflows;
+    firing the corresponding webhook. Sandbox only.
+- name: sandboxMockIncomingTransfer
+  kind: mutation
+  docs: https://docs.routefusion.com/reference/sandbox-sandboxmockincomingtransfer
+  description: Simulates an incoming transfer (credit) in the sandbox environment.
+notes:
+- Sandbox is used to onboard entities, fund wallets, drive transfers through their
+  full state machine, and trigger webhooks without moving real money.
+- No published static test card/bank/IBAN fixtures; test data is created dynamically
+  via the sandbox-only mutations above.

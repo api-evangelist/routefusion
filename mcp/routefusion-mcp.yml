@@ -1,0 +1,33 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: derived from Routefusion GraphQL operations (docs.routefusion.com/llms.txt)
+server:
+  name: routefusion
+  transport: http
+  note: No official Routefusion MCP server was found. This is a candidate tool surface
+    derived one-per-GraphQL-operation; not published by Routefusion.
+tools:
+- {name: my_user, description: Get the authenticated user, source_operation: 'graphql#query.myUser'}
+- {name: organization_users, description: List users in the organization, source_operation: 'graphql#query.organizationUsers'}
+- {name: create_user, description: Create a user (admin token), source_operation: 'graphql#mutation.createUser'}
+- {name: create_business_entity, description: Create a business entity, source_operation: 'graphql#mutation.createBusinessEntity'}
+- {name: create_personal_entity, description: Create a personal entity, source_operation: 'graphql#mutation.createPersonalEntity'}
+- {name: finalize_entity, description: Finalize an entity for compliance onboarding, source_operation: 'graphql#mutation.finalizeEntity'}
+- {name: entity_required_fields, description: Get required fields for an entity, source_operation: 'graphql#query.entityRequiredFields'}
+- {name: create_wallet, description: Create a wallet on an entity, source_operation: 'graphql#mutation.createWallet'}
+- {name: wallet_funding_instructions, description: Get funding instructions for a wallet, source_operation: 'graphql#query.walletFundingInstructions'}
+- {name: create_virtual_account, description: Create a virtual account, source_operation: 'graphql#mutation.createVirtualAccount'}
+- {name: resource_corridors_v2, description: Fetch available corridors, source_operation: 'graphql#query.resourceCorridorsV2'}
+- {name: beneficiary_required_fields_v2, description: Required fields for a beneficiary corridor, source_operation: 'graphql#query.beneficiaryRequiredFieldsV2'}
+- {name: create_business_beneficiary, description: Create a business beneficiary, source_operation: 'graphql#mutation.createBusinessBeneficiary'}
+- {name: create_personal_beneficiary, description: Create a personal beneficiary, source_operation: 'graphql#mutation.createPersonalBeneficiary'}
+- {name: get_transfer_quote, description: Lock an FX rate for a transfer, source_operation: 'graphql#mutation.getTransferQuote'}
+- {name: create_transfer, description: Create (but not execute) a transfer, source_operation: 'graphql#mutation.createTransfer'}
+- {name: finalize_transfer, description: Execute a transfer, source_operation: 'graphql#mutation.finalizeTransfer'}
+- {name: transfers, description: List transfers, source_operation: 'graphql#query.transfers'}
+- {name: transfer_receipt, description: Get a PDF receipt link for a transfer, source_operation: 'graphql#query.transferReceipt'}
+- {name: get_mid_market_rate, description: Get the mid-market rate for a pair, source_operation: 'graphql#query.getMidMarketRate'}
+- {name: incoming_transfers_page, description: List incoming transfers, source_operation: 'graphql#query.incomingTransfersPage'}
+- {name: find_bank, description: Look up a bank by IBAN or SWIFT/BIC, source_operation: 'graphql#query.findBank'}
+- {name: create_webhook_subscription, description: Subscribe to webhook events, source_operation: 'graphql#mutation.createWebhookSubscription'}

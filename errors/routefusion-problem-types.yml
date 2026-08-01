@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.routefusion.com/reference/errors
+format: graphql
+envelope:
+  description: GraphQL responses carry an `errors` array alongside/instead of `data`.
+    Each error has `message`, `path`, and `extensions.code`.
+  fields: [message, path, extensions.code]
+categories:
+- id: authentication_error
+  http_status: 401
+  message: unauthorized
+  cause: Missing/invalid bearer token or insufficient access permissions.
+- id: graphql_error
+  http_status: 400
+  extensions_code: GRAPHQL_VALIDATION_FAILED
+  cause: Malformed queries or variables.
+- id: validation_missing_variable
+  http_status: 200
+  extensions_code: BAD_USER_INPUT
+  cause: A required GraphQL variable was not supplied (message form 'Variable $<name>
+    required').
+- id: validation_malformed_data
+  http_status: 200
+  extensions_code: BAD_USER_INPUT
+  cause: Field failed validation; message includes the regex, an explanation, and an
+    example of the expected value.
+- id: teapot
+  http_status: 418
+  message: "I'm a teapot. I can't brew coffee, but I can make a mean cup of tea!"
+  cause: Easter-egg / non-standard response.
+notes:
+- Validation errors return HTTP 200 with the failure carried in the GraphQL `errors`
+  array (typical GraphQL semantics), not via HTTP status.

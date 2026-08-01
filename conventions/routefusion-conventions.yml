@@ -1,0 +1,36 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.routefusion.com/reference/
+api_style: graphql
+endpoints:
+  sandbox: https://sandbox.external.routefusion.com/graphql
+  production: https://external.routefusion.com/graphql
+authentication:
+  style: bearer
+  header: Authorization
+  ref: authentication/routefusion-authentication.yml
+idempotency:
+  supported: false
+  note: No idempotency-key header/parameter is documented. Transfers are made safe by
+    a two-step create-then-finalize flow (createTransfer/createWalletTransfer followed
+    by finalizeTransfer/finalizeWalletTransfer) so a transfer is only executed on an
+    explicit finalize call.
+pagination:
+  style: filter-object
+  params: [listFilter, search_terms]
+  note: List queries (organizationUsers, transfers, beneficiariesPage, entitiesPage,
+    incomingTransfersPage, organizationVirtualAccountsPage) accept a listFilter object
+    for pagination and, where supported, a search_terms string.
+transfer_flow:
+  quote: getTransferQuote locks an FX rate for a limited time.
+  create_then_finalize: createTransfer/createWalletTransfer prepares the transfer;
+    finalizeTransfer/finalizeWalletTransfer executes it.
+errors:
+  ref: errors/routefusion-problem-types.yml
+  envelope: GraphQL errors array with message/path/extensions.code
+webhooks:
+  ref: asyncapi/routefusion-webhooks.yml
+  signature: Ed25519 signatures on every payload.
+versioning:
+  ref: lifecycle/routefusion-lifecycle.yml
+  note: V2-suffixed operations supersede deprecated originals.

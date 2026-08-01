@@ -1,0 +1,44 @@
+generated: '2026-07-21'
+method: derived
+source: Routefusion GraphQL API reference (docs.routefusion.com)
+entities:
+- name: Organization
+  description: Top-level account tenant; owns users and entities.
+- name: User
+  description: A person/account within an organization; may have the admin role.
+- name: Entity
+  description: A business or personal entity that transacts; goes through compliance
+    onboarding (finalizeEntity) and has representatives.
+- name: Representative
+  description: A representative of a business entity.
+- name: Wallet
+  description: A multi-currency balance held by an entity; can be funded and used to
+    send transfers.
+- name: VirtualAccount
+  description: A sub-account under a main currency account, tied to a single entity,
+    used for reconciliation.
+- name: Beneficiary
+  description: A business or personal payee that can receive transfers.
+- name: Transfer
+  description: An outgoing cross-border payment moving through a state machine.
+- name: IncomingTransfer
+  description: An inbound credit to a wallet/virtual account.
+- name: Quote
+  description: An FX rate locked for a limited time via getTransferQuote.
+- name: WebhookSubscription
+  description: A configured event subscription (transfer/entity/incoming_transfer/wallet/beneficiary/rfi).
+relationships:
+- {from: Organization, type: has_many, to: User}
+- {from: Organization, type: has_many, to: Entity}
+- {from: Entity, type: has_many, to: Wallet, via: entity_id}
+- {from: Entity, type: has_many, to: Beneficiary, via: entity_id}
+- {from: Entity, type: has_many, to: Representative}
+- {from: Wallet, type: has_many, to: VirtualAccount}
+- {from: Transfer, type: belongs_to, to: Entity, via: entity_id}
+- {from: Transfer, type: belongs_to, to: Beneficiary, via: beneficiary_id}
+- {from: Transfer, type: belongs_to, to: Wallet, via: wallet_id}
+- {from: IncomingTransfer, type: belongs_to, to: Wallet, via: wallet_id}
+- {from: IncomingTransfer, type: belongs_to, to: Entity, via: entity_id}
+notes:
+- Derived from the GraphQL operation and webhook-payload surface; id-prefix conventions
+  are not published.
