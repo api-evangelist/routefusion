@@ -41,6 +41,16 @@ tags:
 - FX
 - Wallets
 - GraphQL
+- Stablecoins
+tags_raw:
+- Company
+- Fintech
+- Payments
+- Cross-Border Payments
+- Global Payments
+- FX
+- Wallets
+- GraphQL
 - Stablecoin
 apis:
 - name: Routefusion GraphQL API
