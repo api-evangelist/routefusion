@@ -1,0 +1,6 @@
+generated: '2026-10-14'
+method: probed
+generator: harvest-llms.py
+source: https://docs.routefusion.com/llms.txt
+bytes: 17006
+note: saved verbatim; the provider's own document

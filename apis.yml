@@ -1,21 +1,27 @@
 aid: routefusion
+
 name: Routefusion
-description: 'Routefusion is a global payments infrastructure platform that lets platforms,
-  fintechs, and marketplaces move money across borders through a single GraphQL API.
-  It supports payouts to 180+ countries over SWIFT, local rails, and stablecoin (USDC),
-  non-resident and FDIC/virtual accounts in multiple currencies, multi-currency wallets,
-  FX rate locking and quotes, beneficiary and entity onboarding with compliance review,
-  incoming-transfer reconciliation, and Ed25519-signed webhooks. The API is GraphQL
-  over HTTPS with bearer-token authentication and a full sandbox environment. This
-  profile was added to the API Evangelist network as a portfolio company of Initialized
-  Capital and enriched from Routefusion''s public developer documentation.'
+
+description: Routefusion is a global payments infrastructure platform that lets platforms, fintechs, and marketplaces move money across borders
+  through a single GraphQL API. It supports payouts to 180+ countries over SWIFT, local rails, and stablecoin (USDC), non-resident and FDIC/virtual
+  accounts in multiple currencies, multi-currency wallets, FX rate locking and quotes, beneficiary and entity onboarding with compliance review,
+  incoming-transfer reconciliation, and Ed25519-signed webhooks. The API is GraphQL over HTTPS with bearer-token authentication and a full sandbox
+  environment. This profile was added to the API Evangelist network as a portfolio company of Initialized Capital and enriched from Routefusion's
+  public developer documentation.
+
 url: https://raw.githubusercontent.com/api-evangelist/routefusion/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: vc-portfolio
+
 x-backed-by:
 - initialized-capital
+
 x-tier: stub
+
 x-tier-reason: portfolio-lead
+
 deliveryModel:
   model: saas
   open_source: false
@@ -27,6 +33,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: unknown
   onboarding: unknown
@@ -41,10 +48,15 @@ accessModel:
   - sandbox
   generated: '2026-09-03'
   method: derived
+
 specificationVersion: '0.23'
+
 created: '2026-07-17'
+
 modified: '2026-07-21'
+
 image: https://routefusion.com/images/routefusion-logo.png
+
 tags:
 - Company
 - Fintech
@@ -55,6 +67,7 @@ tags:
 - Wallets
 - GraphQL
 - Stablecoins
+
 tags_raw:
 - Company
 - Fintech
@@ -65,49 +78,20 @@ tags_raw:
 - Wallets
 - GraphQL
 - Stablecoin
-apis:
-- name: Routefusion GraphQL API
-  description: 'Routefusion''s global payments GraphQL API: users, entities, wallets,
-    virtual accounts, beneficiaries, transfers, quotes/rates, incoming transfers, and
-    webhooks for cross-border payouts over SWIFT, local rails, and USDC.'
-  humanURL: https://docs.routefusion.com/reference/getting-started-with-your-api
-  baseURL: https://external.routefusion.com/graphql
-  tags:
-  - Payments
-  - Cross-Border Payments
-  - GraphQL
-  - FX
-  properties:
-  - type: GraphQL
-    url: https://external.routefusion.com/graphql
-  - type: Authentication
-    url: authentication/routefusion-authentication.yml
-  - type: Webhooks
-    url: asyncapi/routefusion-webhooks.yml
-  - type: ErrorCatalog
-    url: errors/routefusion-problem-types.yml
-  - type: DataModel
-    url: data-model/routefusion-data-model.yml
-  - type: Conventions
-    url: conventions/routefusion-conventions.yml
-  - type: Lifecycle
-    url: lifecycle/routefusion-lifecycle.yml
-  - type: Sandbox
-    url: sandbox/routefusion-sandbox.yml
-  - type: X-MCPServerCandidate
-    url: mcp/routefusion-mcp.yml
-    note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
-x-enrichment:
-  date: '2026-07-21'
-  status: enriched
-  artifacts_added: 16
-  pass: local-v1
+
 common:
+- type: AgenticAccess
+  url: agentic-access/routefusion-agentic-access.yml
+- type: Spectral
+  url: rules/routefusion-rules.yml
+- type: Vendors
+  url: vendors/routefusion-vendors.yml
 - type: Website
   url: https://routefusion.com/
 - type: DeveloperPortal
@@ -158,7 +142,9 @@ common:
   url: conformance/routefusion-conformance.yml
 - type: X-MCPServerCandidate
   url: mcp/routefusion-mcp.yml
-  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published
+    API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting
+    the artifact-type surfaces with a server that does not exist.'
 - type: LLMsTxt
   url: llms/routefusion-llms.txt
 - type: WellKnown
@@ -167,3 +153,52 @@ common:
   url: security/routefusion-domain-security.yml
 - type: AgentSkill
   url: skills/_index.yml
+
+apis:
+- name: Routefusion GraphQL API
+  description: 'Routefusion''s global payments GraphQL API: users, entities, wallets, virtual accounts, beneficiaries, transfers, quotes/rates,
+    incoming transfers, and webhooks for cross-border payouts over SWIFT, local rails, and USDC.'
+  humanURL: https://docs.routefusion.com/reference/getting-started-with-your-api
+  baseURL: https://external.routefusion.com/graphql
+  tags:
+  - Payments
+  - Cross-Border Payments
+  - GraphQL
+  - FX
+  properties:
+  - url: openapi/routefusion-api-openapi.yml
+    type: OpenAPI
+  - type: GraphQL
+    url: https://external.routefusion.com/graphql
+  - type: Authentication
+    url: authentication/routefusion-authentication.yml
+  - type: Webhooks
+    url: asyncapi/routefusion-webhooks.yml
+  - type: ErrorCatalog
+    url: errors/routefusion-problem-types.yml
+  - type: DataModel
+    url: data-model/routefusion-data-model.yml
+  - type: Conventions
+    url: conventions/routefusion-conventions.yml
+  - type: Lifecycle
+    url: lifecycle/routefusion-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/routefusion-sandbox.yml
+  - type: X-MCPServerCandidate
+    url: mcp/routefusion-mcp.yml
+    note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published
+      API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting
+      the artifact-type surfaces with a server that does not exist.'
+  aid: routefusion:routefusion-graphql-api
+
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1
+
+x-readme-harvest:
+  date: '2026-10-14'
+  ops: 53
+  tool: harvest-readme-openapi.py
+  portal: https://docs.routefusion.com

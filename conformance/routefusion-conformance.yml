@@ -12,15 +12,22 @@ standards:
   conforms: false
 - id: rfc9457-problem-details
   conforms: false
-  evidence: Errors use the GraphQL errors envelope (message/path/extensions.code),
-    not application/problem+json.
+  evidence: Errors use the GraphQL errors envelope (message/path/extensions.code), not application/problem+json.
 - id: webhook-signing-ed25519
   conforms: true
   evidence: All webhook payloads are signed with Ed25519 for integrity verification.
 - id: rest
   conforms: false
   evidence: No REST/OpenAPI surface; single GraphQL endpoint.
+- id: openapi-3.1
+  conforms: true
+  evidence: the document declares 3.1.0
+- id: rfc9457
+  conforms: false
+  evidence: no response declares application/problem+json
+- id: idempotency
+  conforms: false
+  evidence: no idempotency key parameter on mutating operations
 notes:
-- This is a derived conformance assessment from public docs; no published third-party
-  certification program (SOC 2 / ISO 27001 / PCI) was found on Routefusion's public
-  surface, so no Compliance pointer is asserted.
+- This is a derived conformance assessment from public docs; no published third-party certification program (SOC 2 / ISO 27001 / PCI) was found
+  on Routefusion's public surface, so no Compliance pointer is asserted.

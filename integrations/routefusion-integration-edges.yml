@@ -1,0 +1,16 @@
+generated: '2026-10-14'
+method: none
+source:
+- https://zapier.com/apps/routefusion/integrations
+- https://n8n.io/integrations/routefusion/
+- https://composio.dev/toolkits/routefusion
+- https://monid.ai/tools/routefusion
+checked:
+- https://composio.dev/toolkits/routefusion
+- https://monid.ai/tools/routefusion
+- https://n8n.io/integrations/routefusion/
+- https://zapier.com/apps/routefusion/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
