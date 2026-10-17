@@ -1,0 +1,129 @@
+openapi: 3.2.0
+info:
+  title: routefusion-api Graphql (35 Disregard) API
+  version: '1.0'
+servers:
+- url: https://sandbox.external.routefusion.com
+security:
+- {}
+tags:
+- name: Graphql (35 Disregard)
+paths:
+  /graphql (35 disregard):
+    post:
+      summary: incomingTransfersPage
+      description: The incomingTransfersPage query will return paginated results for incoming transfers (credits) associated with the requesting user's organization ID.
+      operationId: incoming-transfers-page
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  default: '{}'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"data\": {\n        \"incomingTransfersPage\": {\n            \"items\": [{...}, {...}],\n            \"pagination\": {\n                \"page\": 1,\n                \"page_size\": 5,\n                \"pages_total\": 1,\n                \"items_total\": 5\n            },\n            \"updated_date\": null\n        }\n    }\n}"
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: node
+          code: "// query incomingTransfersPage\n\nvar axios = require('axios');\nvar data = JSON.stringify({\n  query: `query incomingTransfersPage(\n$pagination: PaginationInput!\n$search_terms: String\n$filters: [FilterInput]\n) {\n    incomingTransfersPage(\n    pagination: $pagination\n    search_terms: $search_terms\n    filters: $filters\n    ) {\n    items {\n        wallet_id\n        currency\n        credit\n        debit\n        amount\n        transaction_date\n        remittance_info\n        counterparty_name\n        name_on_bank_account\n        nicename_on_bank_account\n        account_number\n        reference\n        virtual_account_name\n        organization_id\n        created_date\n        entity_id\n        incoming_transfer_account_id\n        incoming_transfer_account_name_on_bank_account\n        incoming_transfer_account_bank_name\n        purpose_of_payment\n        uuid\n        updated_date\n        state\n    }\n    pagination {\n        page\n        page_size\n        pages_total\n        items_total\n    }\n    updated_date\n    }\n}`,\n  variables: {\n    \"pagination\": {\n      \"page\":1,\n      \"page_size\":20\n    },\n    \"filters\": [{\n        \"key\": \"incoming_transfer_id\",\n        \"values\": [\n            \"922a11ff-55fb-4b9c-8f0c-be6a07337e99\",\n            \"e159ad7d-034c-4f88-8999-8ebb03978b65\"\n        ]\n    }]}\n});\n\nvar config = {\n  method: 'post',\n  url: 'https://sandbox.external.routefusion.com/graphql',\n  headers: {\n    'Authorization': 'Bearer <your token>',\n    'Content-Type': 'application/json'\n  },\n  data : data\n};\n\naxios(config)\n.then(function (response) {\n  console.log(JSON.stringify(response.data));\n})\n.catch(function (error) {\n  console.log(error);\n});"
+        - language: curl
+          code: '# query incomingTransfersPage
+
+
+            curl --location --request POST ''https://sandbox.external.routefusion.com/graphql'' \
+
+            --header ''Authorization: Bearer <your token<'' \
+
+            --header ''Content-Type: application/json'' \
+
+            --data-raw ''{"query":"query incomingTransfersPage(\n$pagination: PaginationInput!\n$search_terms: String\n$filters: [FilterInput]\n) {\n    incomingTransfersPage(\n    pagination: $pagination\n    search_terms: $search_terms\n    filters: $filters\n    ) {\n    items {\n        wallet_id\n        currency\n        credit\n        debit\n        amount\n        transaction_date\n        remittance_info\n        counterparty_name\n        name_on_bank_account\n        nicename_on_bank_account\n        account_number\n        reference\n        virtual_account_name\n        organization_id\n        created_date\n        entity_id\n        incoming_transfer_account_id\n        incoming_transfer_account_name_on_bank_account\n        incoming_transfer_account_bank_name\n        purpose_of_payment\n        uuid\n        updated_date\n        state\n    }\n    pagination {\n        page\n        page_size\n        pages_total\n        items_total\n    }\n    updated_date\n    }\n}","variables":{"pagination":{"page":1,"page_size":20}}}'''
+        samples-languages:
+        - node
+        - curl
+      tags:
+      - Graphql (35 Disregard)
+x-readme-fauxas: true
+x-provenance:
+  method: searched
+  source: https://docs.routefusion.com/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://docs.routefusion.com/reference/beneficiaries-page.md
+  - https://docs.routefusion.com/reference/beneficiary-required-fields-v2.md
+  - https://docs.routefusion.com/reference/beneficiary.md
+  - https://docs.routefusion.com/reference/changetransferstate.md
+  - https://docs.routefusion.com/reference/create-business-beneficiary.md
+  - https://docs.routefusion.com/reference/create-business-entity.md
+  - https://docs.routefusion.com/reference/create-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/create-personal-entity.md
+  - https://docs.routefusion.com/reference/create-representative.md
+  - https://docs.routefusion.com/reference/create-transfer.md
+  - https://docs.routefusion.com/reference/create-user.md
+  - https://docs.routefusion.com/reference/create-virtual-account.md
+  - https://docs.routefusion.com/reference/create-wallet-transfer.md
+  - https://docs.routefusion.com/reference/create-wallet.md
+  - https://docs.routefusion.com/reference/create-webhook-subscription.md
+  - https://docs.routefusion.com/reference/delete-representative.md
+  - https://docs.routefusion.com/reference/disable-webhook-subscription.md
+  - https://docs.routefusion.com/reference/entities-page.md
+  - https://docs.routefusion.com/reference/entity-beneficiaries.md
+  - https://docs.routefusion.com/reference/entity-required-fields.md
+  - https://docs.routefusion.com/reference/entity-wallets.md
+  - https://docs.routefusion.com/reference/entity.md
+  - https://docs.routefusion.com/reference/finalize-entity.md
+  - https://docs.routefusion.com/reference/finalize-transfer.md
+  - https://docs.routefusion.com/reference/finalize-wallet-transfer.md
+  - https://docs.routefusion.com/reference/findbank.md
+  - https://docs.routefusion.com/reference/get-mid-market-rate.md
+  - https://docs.routefusion.com/reference/get-rate.md
+  - https://docs.routefusion.com/reference/get-transfer-quote.md
+  - https://docs.routefusion.com/reference/incoming-transfers-page.md
+  - https://docs.routefusion.com/reference/incomingtransfer.md
+  - https://docs.routefusion.com/reference/my-user.md
+  - https://docs.routefusion.com/reference/organization-entities.md
+  - https://docs.routefusion.com/reference/organization-entity-wallets.md
+  - https://docs.routefusion.com/reference/organization-users.md
+  - https://docs.routefusion.com/reference/organization-virtual-accounts-page.md
+  - https://docs.routefusion.com/reference/representative-required-fields.md
+  - https://docs.routefusion.com/reference/resource-corridors-v2.md
+  - https://docs.routefusion.com/reference/resource-purpose-of-payment.md
+  - https://docs.routefusion.com/reference/sandbox-add-balance-to-wallet.md
+  - https://docs.routefusion.com/reference/transfer-copy.md
+  - https://docs.routefusion.com/reference/transfer-receipt.md
+  - https://docs.routefusion.com/reference/transfer.md
+  - https://docs.routefusion.com/reference/update-business-beneficiary.md
+  - https://docs.routefusion.com/reference/update-business-entity.md
+  - https://docs.routefusion.com/reference/update-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/update-representative.md
+  - https://docs.routefusion.com/reference/update-transfer.md
+  - https://docs.routefusion.com/reference/upload-transfer-document.md
+  - https://docs.routefusion.com/reference/user-entities.md
+  - https://docs.routefusion.com/reference/verified-organization-entities.md
+  - https://docs.routefusion.com/reference/wallet-funding-instructions.md
+  - https://docs.routefusion.com/reference/wallet.md
+  merge:
+    pages: 53
+    deduped: 0
+    conflicts_kept_first: 0

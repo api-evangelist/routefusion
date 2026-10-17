@@ -1,0 +1,155 @@
+openapi: 3.2.0
+info:
+  title: routefusion-api Graphql (51 Disregard) (COPY) API
+  version: '1.0'
+servers:
+- url: https://sandbox.external.routefusion.com
+security:
+- {}
+tags:
+- name: Graphql (51 Disregard) (COPY)
+paths:
+  /graphql (51 disregard) (COPY):
+    post:
+      summary: entitiesPage
+      description: The entitiesPage query fetches and returns all entities that match the provided filter(s)
+      operationId: entities-page
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+          default: '{}'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": {\n    \"entitiesPage\": {\n      \"items\": [\n        {\n          \"id\": \"60e43050-4362-4ce4-8d7a-b164c4c2067c\",\n          \"business_name\": \"Yankees\",\n          \"website_url\": \"mlb.com/yankees\"\n        },\n        {\n          \"id\": \"02040fb8-f43d-480a-ba23-58b4c25c1ecc\",\n          \"business_name\": \"phone country test llc\",\n          \"website_url\": \"mlb.com/redsox\"\n        }\n      ],\n      \"pagination\": {\n        \"page\": 1,\n        \"page_size\": 2,\n        \"pages_total\": 1,\n        \"items_total\": 2\n      }\n    }\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      entitiesPage:
+                        type: object
+                        properties:
+                          items:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                id:
+                                  type: string
+                                  example: 60e43050-4362-4ce4-8d7a-b164c4c2067c
+                                business_name:
+                                  type: string
+                                  example: Yankees
+                                website_url:
+                                  type: string
+                                  example: mlb.com/yankees
+                          pagination:
+                            type: object
+                            properties:
+                              page:
+                                type: integer
+                                example: 1
+                                default: 0
+                              page_size:
+                                type: integer
+                                example: 2
+                                default: 0
+                              pages_total:
+                                type: integer
+                                example: 1
+                                default: 0
+                              items_total:
+                                type: integer
+                                example: 2
+                                default: 0
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: node
+          code: "const axios = require('axios');\nlet data = JSON.stringify({\n  query: `query EntitiesPage($pagination: PaginationInput!, $filters: [FilterInput]) {\n  entitiesPage(pagination: $pagination, filters: $filters) {\n    items {\n      id\n      business_name\n      website_url\n    }\n    pagination {\n      page\n      page_size\n      pages_total\n      items_total\n    }\n  }\n}`,\n  variables: {\"pagination\":{\"page\":1,\"page_size\":2},\"filters\":[{\"key\":\"business_name\",\"values\":[\"Yankees\",\"Red Sox\"]}]}\n});\n\nlet config = {\n  method: 'post',\n  maxBodyLength: Infinity,\n  url: 'https://sandbox.external.routefusion.com/graphql',\n  headers: { \n    'Content-Type': 'application/json', \n    'Authorization': 'Bearer {{token}}'\n  },\n  data : data\n};\n\naxios.request(config)\n.then((response) => {\n  console.log(JSON.stringify(response.data));\n})\n.catch((error) => {\n  console.log(error);\n});\n"
+        - language: curl
+          code: 'curl --location ''https://sandbox.external.routefusion.com/graphql'' \
+
+            --header ''Content-Type: application/json'' \
+
+            --header ''Authorization: Bearer {{token}}'' \
+
+            --data ''{"query":"query EntitiesPage($pagination: PaginationInput!, $filters: [FilterInput]) {\n  entitiesPage(pagination: $pagination, filters: $filters) {\n    items {\n      id\n          business_name\n      website_url\n    }\n    pagination {\n      page\n      page_size\n      pages_total\n      items_total\n    }\n  }\n}","variables":{"pagination":{"page":1,"page_size":25},"filters":[{"key":"business_name","values":["Yankees","Red Sox"]}]}}'''
+        samples-languages:
+        - node
+        - curl
+      tags:
+      - Graphql (51 Disregard) (COPY)
+x-readme-fauxas: true
+x-provenance:
+  method: searched
+  source: https://docs.routefusion.com/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://docs.routefusion.com/reference/beneficiaries-page.md
+  - https://docs.routefusion.com/reference/beneficiary-required-fields-v2.md
+  - https://docs.routefusion.com/reference/beneficiary.md
+  - https://docs.routefusion.com/reference/changetransferstate.md
+  - https://docs.routefusion.com/reference/create-business-beneficiary.md
+  - https://docs.routefusion.com/reference/create-business-entity.md
+  - https://docs.routefusion.com/reference/create-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/create-personal-entity.md
+  - https://docs.routefusion.com/reference/create-representative.md
+  - https://docs.routefusion.com/reference/create-transfer.md
+  - https://docs.routefusion.com/reference/create-user.md
+  - https://docs.routefusion.com/reference/create-virtual-account.md
+  - https://docs.routefusion.com/reference/create-wallet-transfer.md
+  - https://docs.routefusion.com/reference/create-wallet.md
+  - https://docs.routefusion.com/reference/create-webhook-subscription.md
+  - https://docs.routefusion.com/reference/delete-representative.md
+  - https://docs.routefusion.com/reference/disable-webhook-subscription.md
+  - https://docs.routefusion.com/reference/entities-page.md
+  - https://docs.routefusion.com/reference/entity-beneficiaries.md
+  - https://docs.routefusion.com/reference/entity-required-fields.md
+  - https://docs.routefusion.com/reference/entity-wallets.md
+  - https://docs.routefusion.com/reference/entity.md
+  - https://docs.routefusion.com/reference/finalize-entity.md
+  - https://docs.routefusion.com/reference/finalize-transfer.md
+  - https://docs.routefusion.com/reference/finalize-wallet-transfer.md
+  - https://docs.routefusion.com/reference/findbank.md
+  - https://docs.routefusion.com/reference/get-mid-market-rate.md
+  - https://docs.routefusion.com/reference/get-rate.md
+  - https://docs.routefusion.com/reference/get-transfer-quote.md
+  - https://docs.routefusion.com/reference/incoming-transfers-page.md
+  - https://docs.routefusion.com/reference/incomingtransfer.md
+  - https://docs.routefusion.com/reference/my-user.md
+  - https://docs.routefusion.com/reference/organization-entities.md
+  - https://docs.routefusion.com/reference/organization-entity-wallets.md
+  - https://docs.routefusion.com/reference/organization-users.md
+  - https://docs.routefusion.com/reference/organization-virtual-accounts-page.md
+  - https://docs.routefusion.com/reference/representative-required-fields.md
+  - https://docs.routefusion.com/reference/resource-corridors-v2.md
+  - https://docs.routefusion.com/reference/resource-purpose-of-payment.md
+  - https://docs.routefusion.com/reference/sandbox-add-balance-to-wallet.md
+  - https://docs.routefusion.com/reference/transfer-copy.md
+  - https://docs.routefusion.com/reference/transfer-receipt.md
+  - https://docs.routefusion.com/reference/transfer.md
+  - https://docs.routefusion.com/reference/update-business-beneficiary.md
+  - https://docs.routefusion.com/reference/update-business-entity.md
+  - https://docs.routefusion.com/reference/update-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/update-representative.md
+  - https://docs.routefusion.com/reference/update-transfer.md
+  - https://docs.routefusion.com/reference/upload-transfer-document.md
+  - https://docs.routefusion.com/reference/user-entities.md
+  - https://docs.routefusion.com/reference/verified-organization-entities.md
+  - https://docs.routefusion.com/reference/wallet-funding-instructions.md
+  - https://docs.routefusion.com/reference/wallet.md
+  merge:
+    pages: 53
+    deduped: 0
+    conflicts_kept_first: 0

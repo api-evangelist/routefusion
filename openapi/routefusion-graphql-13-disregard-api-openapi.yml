@@ -1,0 +1,132 @@
+openapi: 3.2.0
+info:
+  title: routefusion-api Graphql (13 Disregard) API
+  version: '1.0'
+servers:
+- url: https://sandbox.external.routefusion.com
+security:
+- {}
+tags:
+- name: Graphql (13 Disregard)
+paths:
+  /graphql (13 disregard):
+    post:
+      summary: createBusinessEntity
+      description: The createBusinessEntity mutation creates an entity with a type of business. This will enable a business to create beneficiaries and transfers.
+      operationId: create-business-entity
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+          default: '{}'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": {\n    \"createRepresentative\": \"573442c4-e010-480b-9acf-861fac940e9a\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      createRepresentative:
+                        type: string
+                        example: 573442c4-e010-480b-9acf-861fac940e9a
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: node
+          code: "const axios = require('axios');\nlet data = JSON.stringify({\n  query: `mutation createBusinessEntity (\n    $user_id: UUID!\n    $email: Email!\n    $phone: String\n    $phone_country: String\n    $contact_first_name: String!\n    $contact_last_name: String!\n    $business_name: String!\n    $business_address1: String!\n    $business_address2: String\n    $business_city: String\n    $business_state_province_region: String\n    $business_postal_code: PostalCode\n    $business_country: ISO3166_1!\n    $tax_number: TaxNumber\n    $accept_terms_and_conditions: Boolean!\n\t\t$platform_id: UUID!\n) {\n    createBusinessEntity (\n        user_id: $user_id\n        email: $email\n        phone: $phone\n        phone_country: $phone_country\n        contact_first_name: $contact_first_name\n        contact_last_name: $contact_last_name\n        business_name: $business_name\n        business_address1: $business_address1\n        business_address2: $business_address2\n        business_city: $business_city\n        business_state_province_region: $business_state_province_region\n        business_postal_code: $business_postal_code\n        business_country: $business_country\n        tax_number: $tax_number\n        accept_terms_and_conditions: $accept_terms_and_conditions\n\t\t\t\tplatform_id: $platform_id\n    )\n}`,\n  variables: {\"user_id\":\"\",\"email\":\"\",\"phone\":\"\",\"phone_country\":\"\",\"contact_first_name\":\"\",\"contact_last_name\":\"\",\"business_name\":\"\",\"business_address1\":\"\",\"business_address2\":\"\",\"business_city\":\"\",\"business_state_province_region\":\"\",\"business_postal_code\":\"\",\"business_country\":\"\",\"tax_number\":\"\",\"accept_terms_and_conditions\":true}\n});\n\nlet config = {\n  method: 'post',\n  maxBodyLength: Infinity,\n  url: 'https://sandbox.external.routefusion.com/graphql',\n  headers: { \n    'Content-Type': 'application/json', \n    'Authorization': '••••••'\n  },\n  data : data\n};\n\naxios.request(config)\n.then((response) => {\n  console.log(JSON.stringify(response.data));\n})\n.catch((error) => {\n  console.log(error);\n});\n"
+        - language: curl
+          code: 'curl --location ''https://sandbox.external.routefusion.com/graphql'' \
+
+            --header ''Content-Type: application/json'' \
+
+            --header ''Authorization: ••••••'' \
+
+            --data ''{"query":"mutation createBusinessEntity (\n    $user_id: UUID!\n    $email: Email!\n    $phone: String\n $phone_country: String\n   $contact_first_name: String!\n    $contact_last_name: String!\n    $business_name: String!\n    $business_address1: String!\n    $business_address2: String\n    $business_city: String\n    $business_state_province_region: String\n    $business_postal_code: PostalCode\n    $business_country: ISO3166_1!\n    $tax_number: TaxNumber\n    $officers: [OfficerInput]\n    $accept_terms_and_conditions: Boolean!\n) {\n    createBusinessEntity (\n        user_id: $user_id\n        email: $email\n        phone: $phone\n phone_country: $phone_country\n       contact_first_name: $contact_first_name\n        contact_last_name: $contact_last_name\n        business_name: $business_name\n        business_address1: $business_address1\n        business_address2: $business_address2\n        business_city: $business_city\n        business_state_province_region: $business_state_province_region\n        business_postal_code: $business_postal_code\n        business_country: $business_country\n        tax_number: $tax_number\n        officers: $officers\n        accept_terms_and_conditions: $accept_terms_and_conditions\n    )\n}","variables":{"user_id":"","email":"","phone":"","phone_country":"","contact_first_name":"","contact_last_name":"","business_name":"","business_address1":"","business_address2":"","business_city":"","business_state_province_region":"","business_postal_code":"","business_country":"","tax_number":"","officers":{"first_name":"","last_name":"","percent_ownership":0,"director":true,"occupation":"","birth_date":""},"accept_terms_and_conditions":true}}'''
+        samples-languages:
+        - node
+        - curl
+      tags:
+      - Graphql (13 Disregard)
+x-readme-fauxas: true
+x-provenance:
+  method: searched
+  source: https://docs.routefusion.com/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://docs.routefusion.com/reference/beneficiaries-page.md
+  - https://docs.routefusion.com/reference/beneficiary-required-fields-v2.md
+  - https://docs.routefusion.com/reference/beneficiary.md
+  - https://docs.routefusion.com/reference/changetransferstate.md
+  - https://docs.routefusion.com/reference/create-business-beneficiary.md
+  - https://docs.routefusion.com/reference/create-business-entity.md
+  - https://docs.routefusion.com/reference/create-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/create-personal-entity.md
+  - https://docs.routefusion.com/reference/create-representative.md
+  - https://docs.routefusion.com/reference/create-transfer.md
+  - https://docs.routefusion.com/reference/create-user.md
+  - https://docs.routefusion.com/reference/create-virtual-account.md
+  - https://docs.routefusion.com/reference/create-wallet-transfer.md
+  - https://docs.routefusion.com/reference/create-wallet.md
+  - https://docs.routefusion.com/reference/create-webhook-subscription.md
+  - https://docs.routefusion.com/reference/delete-representative.md
+  - https://docs.routefusion.com/reference/disable-webhook-subscription.md
+  - https://docs.routefusion.com/reference/entities-page.md
+  - https://docs.routefusion.com/reference/entity-beneficiaries.md
+  - https://docs.routefusion.com/reference/entity-required-fields.md
+  - https://docs.routefusion.com/reference/entity-wallets.md
+  - https://docs.routefusion.com/reference/entity.md
+  - https://docs.routefusion.com/reference/finalize-entity.md
+  - https://docs.routefusion.com/reference/finalize-transfer.md
+  - https://docs.routefusion.com/reference/finalize-wallet-transfer.md
+  - https://docs.routefusion.com/reference/findbank.md
+  - https://docs.routefusion.com/reference/get-mid-market-rate.md
+  - https://docs.routefusion.com/reference/get-rate.md
+  - https://docs.routefusion.com/reference/get-transfer-quote.md
+  - https://docs.routefusion.com/reference/incoming-transfers-page.md
+  - https://docs.routefusion.com/reference/incomingtransfer.md
+  - https://docs.routefusion.com/reference/my-user.md
+  - https://docs.routefusion.com/reference/organization-entities.md
+  - https://docs.routefusion.com/reference/organization-entity-wallets.md
+  - https://docs.routefusion.com/reference/organization-users.md
+  - https://docs.routefusion.com/reference/organization-virtual-accounts-page.md
+  - https://docs.routefusion.com/reference/representative-required-fields.md
+  - https://docs.routefusion.com/reference/resource-corridors-v2.md
+  - https://docs.routefusion.com/reference/resource-purpose-of-payment.md
+  - https://docs.routefusion.com/reference/sandbox-add-balance-to-wallet.md
+  - https://docs.routefusion.com/reference/transfer-copy.md
+  - https://docs.routefusion.com/reference/transfer-receipt.md
+  - https://docs.routefusion.com/reference/transfer.md
+  - https://docs.routefusion.com/reference/update-business-beneficiary.md
+  - https://docs.routefusion.com/reference/update-business-entity.md
+  - https://docs.routefusion.com/reference/update-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/update-representative.md
+  - https://docs.routefusion.com/reference/update-transfer.md
+  - https://docs.routefusion.com/reference/upload-transfer-document.md
+  - https://docs.routefusion.com/reference/user-entities.md
+  - https://docs.routefusion.com/reference/verified-organization-entities.md
+  - https://docs.routefusion.com/reference/wallet-funding-instructions.md
+  - https://docs.routefusion.com/reference/wallet.md
+  merge:
+    pages: 53
+    deduped: 0
+    conflicts_kept_first: 0

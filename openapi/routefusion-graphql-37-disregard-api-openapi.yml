@@ -1,0 +1,129 @@
+openapi: 3.2.0
+info:
+  title: routefusion-api Graphql (37 Disregard) API
+  version: '1.0'
+servers:
+- url: https://sandbox.external.routefusion.com
+security:
+- {}
+tags:
+- name: Graphql (37 Disregard)
+paths:
+  /graphql (37 disregard):
+    post:
+      summary: organizationVirtualAccountsPage
+      description: The organizationVirtualAccountsPage query will return paginated results for virtual accounts associated with the requesting user's organization ID.
+      operationId: organization-virtual-accounts-page
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  default: '{}'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"data\": {\n        \"organizationVirtualAccountsPage\": {\n            \"items\": [{...}, {...}],\n            \"pagination\": {\n                \"page\": 1,\n                \"page_size\": 0,\n                \"pages_total\": 0,\n                \"items_total\": 0\n            },\n            \"updated_date\": null\n        }\n    }\n}"
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: node
+          code: "// query organizationVirtualAccountsPage\n\nvar axios = require('axios');\nvar data = JSON.stringify({\n  query: `query organizationVirtualAccountsPage(\n    $search_terms: String\n    $pagination: PaginationInput!\n    $filters: [FilterInput]\n    ) {\n        organizationVirtualAccountsPage(\n        search_terms: $search_terms\n        pagination: $pagination\n        filters: $filters\n        ) {\n        items {\n            id\n            currency\n            created_date\n            updated_date\n            balance\n            client_friendly_name\n            account_name\n            account_iban\n            account_number\n            master_account_iban\n            master_account_number\n            state\n            organization {\n                id\n                identifier\n            }\n            entity {\n            id\n            entity_name\n            }\n        }\n        pagination {\n            page\n            page_size\n            pages_total\n            items_total\n        }\n        updated_date\n        }\n    }`,\n  variables: {\"pagination\":{\"page\":1,\"page_size\":20}}\n});\n\nvar config = {\n  method: 'post',\n  url: 'https://sandbox.external.routefusion.com/graphql',\n  headers: {\n    'Authorization': 'Bearer <your token>',\n    'Content-Type': 'application/json'\n  },\n  data : data\n};\n\naxios(config)\n.then(function (response) {\n  console.log(JSON.stringify(response.data));\n})\n.catch(function (error) {\n  console.log(error);\n});"
+        - language: curl
+          code: '# query organizationVirtualAccountsPage
+
+
+            curl --location --request POST ''https://sandbox.external.routefusion.com/graphql'' \
+
+            --header ''Authorization: Bearer <your token<'' \
+
+            --header ''Content-Type: application/json'' \
+
+            --data-raw ''{"query":"query organizationVirtualAccountsPage(\n    $search_terms: String\n    $pagination: PaginationInput!\n    $filters: [FilterInput]\n    ) {\n        organizationVirtualAccountsPage(\n        search_terms: $search_terms\n        pagination: $pagination\n        filters: $filters\n        ) {\n        items { \n            id\n            currency\n            created_date\n            updated_date\n            balance\n            client_friendly_name\n            account_name\n            account_iban\n            account_number\n            master_account_iban\n            master_account_number\n            state\n            organization {\n                id\n                identifier\n            }\n            entity {\n            id\n            entity_name\n            }\n        }\n        pagination {\n            page\n            page_size\n            pages_total\n            items_total\n        }\n        updated_date\n        }\n    }","variables":{"pagination":{"page":1,"page_size":20}}}'''
+        samples-languages:
+        - node
+        - curl
+      tags:
+      - Graphql (37 Disregard)
+x-readme-fauxas: true
+x-provenance:
+  method: searched
+  source: https://docs.routefusion.com/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://docs.routefusion.com/reference/beneficiaries-page.md
+  - https://docs.routefusion.com/reference/beneficiary-required-fields-v2.md
+  - https://docs.routefusion.com/reference/beneficiary.md
+  - https://docs.routefusion.com/reference/changetransferstate.md
+  - https://docs.routefusion.com/reference/create-business-beneficiary.md
+  - https://docs.routefusion.com/reference/create-business-entity.md
+  - https://docs.routefusion.com/reference/create-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/create-personal-entity.md
+  - https://docs.routefusion.com/reference/create-representative.md
+  - https://docs.routefusion.com/reference/create-transfer.md
+  - https://docs.routefusion.com/reference/create-user.md
+  - https://docs.routefusion.com/reference/create-virtual-account.md
+  - https://docs.routefusion.com/reference/create-wallet-transfer.md
+  - https://docs.routefusion.com/reference/create-wallet.md
+  - https://docs.routefusion.com/reference/create-webhook-subscription.md
+  - https://docs.routefusion.com/reference/delete-representative.md
+  - https://docs.routefusion.com/reference/disable-webhook-subscription.md
+  - https://docs.routefusion.com/reference/entities-page.md
+  - https://docs.routefusion.com/reference/entity-beneficiaries.md
+  - https://docs.routefusion.com/reference/entity-required-fields.md
+  - https://docs.routefusion.com/reference/entity-wallets.md
+  - https://docs.routefusion.com/reference/entity.md
+  - https://docs.routefusion.com/reference/finalize-entity.md
+  - https://docs.routefusion.com/reference/finalize-transfer.md
+  - https://docs.routefusion.com/reference/finalize-wallet-transfer.md
+  - https://docs.routefusion.com/reference/findbank.md
+  - https://docs.routefusion.com/reference/get-mid-market-rate.md
+  - https://docs.routefusion.com/reference/get-rate.md
+  - https://docs.routefusion.com/reference/get-transfer-quote.md
+  - https://docs.routefusion.com/reference/incoming-transfers-page.md
+  - https://docs.routefusion.com/reference/incomingtransfer.md
+  - https://docs.routefusion.com/reference/my-user.md
+  - https://docs.routefusion.com/reference/organization-entities.md
+  - https://docs.routefusion.com/reference/organization-entity-wallets.md
+  - https://docs.routefusion.com/reference/organization-users.md
+  - https://docs.routefusion.com/reference/organization-virtual-accounts-page.md
+  - https://docs.routefusion.com/reference/representative-required-fields.md
+  - https://docs.routefusion.com/reference/resource-corridors-v2.md
+  - https://docs.routefusion.com/reference/resource-purpose-of-payment.md
+  - https://docs.routefusion.com/reference/sandbox-add-balance-to-wallet.md
+  - https://docs.routefusion.com/reference/transfer-copy.md
+  - https://docs.routefusion.com/reference/transfer-receipt.md
+  - https://docs.routefusion.com/reference/transfer.md
+  - https://docs.routefusion.com/reference/update-business-beneficiary.md
+  - https://docs.routefusion.com/reference/update-business-entity.md
+  - https://docs.routefusion.com/reference/update-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/update-representative.md
+  - https://docs.routefusion.com/reference/update-transfer.md
+  - https://docs.routefusion.com/reference/upload-transfer-document.md
+  - https://docs.routefusion.com/reference/user-entities.md
+  - https://docs.routefusion.com/reference/verified-organization-entities.md
+  - https://docs.routefusion.com/reference/wallet-funding-instructions.md
+  - https://docs.routefusion.com/reference/wallet.md
+  merge:
+    pages: 53
+    deduped: 0
+    conflicts_kept_first: 0

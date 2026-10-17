@@ -1,0 +1,169 @@
+openapi: 3.2.0
+info:
+  title: routefusion-api Graphql (29 Disregard) API
+  version: '1.0'
+servers:
+- url: https://sandbox.external.routefusion.com
+security:
+- {}
+tags:
+- name: Graphql (29 Disregard)
+paths:
+  /graphql (29 disregard):
+    post:
+      summary: findBank
+      description: 'The findBank query fetches and returns a single bank that matches the given routing information. Note: One of (iban, swift_bic) required.'
+      operationId: findbank
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  default: '{}'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": {\n    \"findBank\": {\n      \"routing_code\": \"239136\",\n      \"swift_bic\": \"AIBKGB2L\",\n      \"bank_name\": \"AIB GROUP (UK) PLC T/A ALLIED IRISH BANK (GB)\",\n      \"bank_address1\": \"VANTAGE POINT SPINNINGFIELDS HARDMA\",\n      \"bank_address2\": \"N STREET\",\n      \"bank_city\": \"MANCHESTER\",\n      \"bank_state_province_region\": \"ENGLAND\",\n      \"bank_postal_code\": \"M3 3HF\",\n      \"bank_country\": \"GB\",\n      \"formatted_address\": \"VANTAGE POINT SPINNINGFIELDS HARDMA \\n N STREET\",\n      \"formatted_address_html\": \"<div class=\\\"bank_find_details\\\">\\n  <div class=\\\"line1\\\">AIB GROUP (UK) PLC T/A ALLIED IRISH BANK (GB)</div>\\n  <div class=\\\"line2\\\">\\n    <span class=\\\"bank_address1\\\">VANTAGE POINT SPINNINGFIELDS HARDMA</span>\\n    \\n  </div>\\n  <div class=\\\"line3\\\">\\n    <span class=\\\"bank_city\\\">MANCHESTER</span>\\n    \\n    <span class=\\\"bank_postal_code\\\">M3 3HF</span>\\n    , <span class=\\\"bank_country\\\">GB</span>\\n  </div>\\n</div>\"\n    }\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      findBank:
+                        type: object
+                        properties:
+                          routing_code:
+                            type: string
+                            example: '239136'
+                          swift_bic:
+                            type: string
+                            example: AIBKGB2L
+                          bank_name:
+                            type: string
+                            example: AIB GROUP (UK) PLC T/A ALLIED IRISH BANK (GB)
+                          bank_address1:
+                            type: string
+                            example: VANTAGE POINT SPINNINGFIELDS HARDMA
+                          bank_address2:
+                            type: string
+                            example: N STREET
+                          bank_city:
+                            type: string
+                            example: MANCHESTER
+                          bank_state_province_region:
+                            type: string
+                            example: ENGLAND
+                          bank_postal_code:
+                            type: string
+                            example: M3 3HF
+                          bank_country:
+                            type: string
+                            example: GB
+                          formatted_address:
+                            type: string
+                            example: "VANTAGE POINT SPINNINGFIELDS HARDMA \n N STREET"
+                          formatted_address_html:
+                            type: string
+                            example: "<div class=\"bank_find_details\">\n  <div class=\"line1\">AIB GROUP (UK) PLC T/A ALLIED IRISH BANK (GB)</div>\n  <div class=\"line2\">\n    <span class=\"bank_address1\">VANTAGE POINT SPINNINGFIELDS HARDMA</span>\n    \n  </div>\n  <div class=\"line3\">\n    <span class=\"bank_city\">MANCHESTER</span>\n    \n    <span class=\"bank_postal_code\">M3 3HF</span>\n    , <span class=\"bank_country\">GB</span>\n  </div>\n</div>"
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: node
+          code: "var axios = require('axios');\nvar data = JSON.stringify({\n  query: `query findBank (\n    $iban: String\n    ) {\n    findBank (\n    iban: $iban\n      ) {\n        routing_code\n        swift_bic\n        bank_name\n        bank_address1\n        bank_address2\n        bank_city\n        bank_state_province_region\n        bank_postal_code\n        bank_country\n        formatted_address\n        formatted_address_html\n    }\n}`,\n  variables: { iban: \"BR1500000000000010932840814P2\" }\n});\n\nvar config = {\n  method: 'post',\n  url: 'https://sandbox.external.routefusion.com/graphql',\n  headers: {\n    'Content-Type': 'application/json'\n  },\n  data : data\n};\n\naxios(config)\n.then(function (response) {\n  console.log(JSON.stringify(response.data));\n})\n.catch(function (error) {\n  console.log(error);\n});\n"
+        - language: curl
+          code: '# query findBank
+
+
+            curl --location --request POST ''https://sandbox.external.routefusion.com/graphql'' \
+
+            --header ''Content-Type: application/json'' \
+
+            --data-raw ''{"query":"query findBank ($iban: String) {\n    findBank (iban: $iban) {\n        routing_code\n        swift_bic\n        bank_name\n        bank_address1\n        bank_address2\n        bank_city\n        bank_state_province_region\n        bank_postal_code\n        bank_country\n        formatted_address\n        formatted_address_html\n}\n}","variables":{"iban":"BR1500000000000010932840814P2"}}'''
+        samples-languages:
+        - node
+        - curl
+      tags:
+      - Graphql (29 Disregard)
+x-readme-fauxas: true
+x-provenance:
+  method: searched
+  source: https://docs.routefusion.com/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://docs.routefusion.com/reference/beneficiaries-page.md
+  - https://docs.routefusion.com/reference/beneficiary-required-fields-v2.md
+  - https://docs.routefusion.com/reference/beneficiary.md
+  - https://docs.routefusion.com/reference/changetransferstate.md
+  - https://docs.routefusion.com/reference/create-business-beneficiary.md
+  - https://docs.routefusion.com/reference/create-business-entity.md
+  - https://docs.routefusion.com/reference/create-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/create-personal-entity.md
+  - https://docs.routefusion.com/reference/create-representative.md
+  - https://docs.routefusion.com/reference/create-transfer.md
+  - https://docs.routefusion.com/reference/create-user.md
+  - https://docs.routefusion.com/reference/create-virtual-account.md
+  - https://docs.routefusion.com/reference/create-wallet-transfer.md
+  - https://docs.routefusion.com/reference/create-wallet.md
+  - https://docs.routefusion.com/reference/create-webhook-subscription.md
+  - https://docs.routefusion.com/reference/delete-representative.md
+  - https://docs.routefusion.com/reference/disable-webhook-subscription.md
+  - https://docs.routefusion.com/reference/entities-page.md
+  - https://docs.routefusion.com/reference/entity-beneficiaries.md
+  - https://docs.routefusion.com/reference/entity-required-fields.md
+  - https://docs.routefusion.com/reference/entity-wallets.md
+  - https://docs.routefusion.com/reference/entity.md
+  - https://docs.routefusion.com/reference/finalize-entity.md
+  - https://docs.routefusion.com/reference/finalize-transfer.md
+  - https://docs.routefusion.com/reference/finalize-wallet-transfer.md
+  - https://docs.routefusion.com/reference/findbank.md
+  - https://docs.routefusion.com/reference/get-mid-market-rate.md
+  - https://docs.routefusion.com/reference/get-rate.md
+  - https://docs.routefusion.com/reference/get-transfer-quote.md
+  - https://docs.routefusion.com/reference/incoming-transfers-page.md
+  - https://docs.routefusion.com/reference/incomingtransfer.md
+  - https://docs.routefusion.com/reference/my-user.md
+  - https://docs.routefusion.com/reference/organization-entities.md
+  - https://docs.routefusion.com/reference/organization-entity-wallets.md
+  - https://docs.routefusion.com/reference/organization-users.md
+  - https://docs.routefusion.com/reference/organization-virtual-accounts-page.md
+  - https://docs.routefusion.com/reference/representative-required-fields.md
+  - https://docs.routefusion.com/reference/resource-corridors-v2.md
+  - https://docs.routefusion.com/reference/resource-purpose-of-payment.md
+  - https://docs.routefusion.com/reference/sandbox-add-balance-to-wallet.md
+  - https://docs.routefusion.com/reference/transfer-copy.md
+  - https://docs.routefusion.com/reference/transfer-receipt.md
+  - https://docs.routefusion.com/reference/transfer.md
+  - https://docs.routefusion.com/reference/update-business-beneficiary.md
+  - https://docs.routefusion.com/reference/update-business-entity.md
+  - https://docs.routefusion.com/reference/update-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/update-representative.md
+  - https://docs.routefusion.com/reference/update-transfer.md
+  - https://docs.routefusion.com/reference/upload-transfer-document.md
+  - https://docs.routefusion.com/reference/user-entities.md
+  - https://docs.routefusion.com/reference/verified-organization-entities.md
+  - https://docs.routefusion.com/reference/wallet-funding-instructions.md
+  - https://docs.routefusion.com/reference/wallet.md
+  merge:
+    pages: 53
+    deduped: 0
+    conflicts_kept_first: 0

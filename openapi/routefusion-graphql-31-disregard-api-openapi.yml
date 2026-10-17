@@ -1,0 +1,216 @@
+openapi: 3.2.0
+info:
+  title: routefusion-api Graphql (31 Disregard) API
+  version: '1.0'
+servers:
+- url: https://sandbox.external.routefusion.com
+security:
+- {}
+tags:
+- name: Graphql (31 Disregard)
+paths:
+  /graphql (31 disregard):
+    post:
+      summary: transfers
+      description: The transfers query fetches all transfers for an organization with pagination control through the listFilter object. You can include some search terms (id, entity_id,organization_id,..etc) using search_terms string.
+      operationId: transfer-copy
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  default: '{}'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": {\n    \"transfersPage\": {\n      \"items\": [\n        {\n          \"beneficiary\": {\n            \"id\": \"03bb2933-94bd-4336-8002-0b30585ceb5c\"\n          },\n          \"entity\": {\n            \"id\": \"f8825f22-0eec-41c5-bfc1-9ab62c0b7234\"\n          },\n          \"fee\": \"5.25\",\n          \"fee_usd\": \"5.00\",\n          \"original_fee\": \"5.25\",\n          \"source_amount\": \"25.54\",\n          \"source_currency\": \"USD\",\n          \"destination_amount\": \"98.00\",\n          \"destination_currency\": \"BRL\",\n          \"purpose_of_payment\": \"Rise Pay App Withdraw\",\n          \"rate\": \"5.123632\",\n          \"reference\": \"0x5a3ac5f2f466e87a400ad3221ffd9c6848d575933f4953054e41cb1e471fc772_2_1702474097502\",\n          \"created_date\": \"2023-12-13T13:28:18.057Z\",\n          \"expected_delivery_date\": \"2023-12-14T13:28:19.847Z\",\n          \"wallet\": {\n            \"id\": \"76fe4359-7b2b-4ca2-b0cb-08b0f68fe69e\"\n          },\n          \"payment_method\": \"local\",\n          \"is_scheduled\": false,\n          \"scheduled_delivery_date\": null,\n          \"wire\": false,\n          \"documents\": null,\n          \"document_reference\": null,\n          \"trace\": null,\n          \"error\": null,\n          \"id\": \"842cceca-5427-4666-a981-86c6f60b912d\",\n          \"state\": \"completed\"\n        },\n        {\n          \"beneficiary\": {\n            \"id\": \"03bb2933-94bd-4336-8002-0b30585ceb5c\"\n          },\n          \"entity\": {\n            \"id\": \"f8825f22-0eec-41c5-bfc1-9ab62c0b7234\"\n          },\n          \"fee\": \"5.25\",\n          \"fee_usd\": \"5.00\",\n          \"original_fee\": \"5.25\",\n          \"source_amount\": \"25.54\",\n          \"source_currency\": \"USD\",\n          \"destination_amount\": \"98.00\",\n          \"destination_currency\": \"BRL\",\n          \"purpose_of_payment\": \"Rise Pay App Withdraw\",\n          \"rate\": \"5.122165\",\n          \"reference\": \"0x5a3ac5f2f466e87a400ad3221ffd9c6848d575933f4953054e41cb1e471fc772_2_1702473952198\",\n          \"created_date\": \"2023-12-13T13:25:52.735Z\",\n          \"expected_delivery_date\": \"2023-12-14T13:25:56.604Z\",\n          \"wallet\": {\n            \"id\": \"76fe4359-7b2b-4ca2-b0cb-08b0f68fe69e\"\n          },\n          \"payment_method\": \"local\",\n          \"is_scheduled\": false,\n          \"scheduled_delivery_date\": null,\n          \"wire\": false,\n          \"documents\": null,\n          \"document_reference\": null,\n          \"trace\": null,\n          \"error\": null,\n          \"id\": \"693d4848-cb86-42ba-9fc1-7f6d533a8377\",\n          \"state\": \"completed\"\n        },\n        {\n          \"beneficiary\": {\n            \"id\": \"3a6a0da7-77d4-4f89-900c-645bc9054994\"\n          },\n          \"entity\": {\n            \"id\": \"f8825f22-0eec-41c5-bfc1-9ab62c0b7234\"\n          },\n          \"fee\": \"0.00\",\n          \"fee_usd\": \"0.00\",\n          \"original_fee\": \"0.00\",\n          \"source_amount\": \"85.00\",\n          \"source_currency\": \"USD\",\n          \"destination_amount\": \"85.00\",\n          \"destination_currency\": \"USD\",\n          \"purpose_of_payment\": \"Rise Pay App Withdraw\",\n          \"rate\": \"1.000000\",\n          \"reference\": \"0x242e28c35f6a4e7ddfb0cc3797ad546545ee5ad5b1f07cdb6e3d550d34447ed2_2\",\n          \"created_date\": \"2023-12-04T16:48:38.817Z\",\n          \"expected_delivery_date\": \"2023-12-05T16:48:42.358Z\",\n          \"wallet\": {\n            \"id\": \"76fe4359-7b2b-4ca2-b0cb-08b0f68fe69e\"\n          },\n          \"payment_method\": \"local\",\n          \"is_scheduled\": false,\n          \"scheduled_delivery_date\": null,\n          \"wire\": false,\n          \"documents\": null,\n          \"document_reference\": null,\n          \"trace\": null,\n          \"error\": null,\n          \"id\": \"dbbb19e4-f507-4877-87b7-b87d35c41c67\",\n          \"state\": \"completed\"\n        },\n        {\n          \"beneficiary\": {\n            \"id\": \"859c1b28-9990-41ff-b4a2-17961f7e8697\"\n          },\n          \"entity\": {\n            \"id\": \"f8825f22-0eec-41c5-bfc1-9ab62c0b7234\"\n          },\n          \"fee\": \"5.25\",\n          \"fee_usd\": \"5.00\",\n          \"original_fee\": \"5.25\",\n          \"source_amount\": \"61.65\",\n          \"source_currency\": \"USD\",\n          \"destination_amount\": \"49.83\",\n          \"destination_currency\": \"EUR\",\n          \"purpose_of_payment\": \"Rise Pay App Withdraw\",\n          \"rate\": \"0.937285\",\n          \"reference\": \"0x41cf876d078f86349f02f1347bc304042164cfacb2a49e1c25aee997cbf1998a_4_2023-11-29T19:07:49.590Z\",\n          \"created_date\": \"2023-11-29T19:07:50.230Z\",\n          \"expected_delivery_date\": \"2023-11-30T19:07:53.373Z\",\n          \"wallet\": {\n            \"id\": \"76fe4359-7b2b-4ca2-b0cb-08b0f68fe69e\"\n          },\n          \"payment_method\": \"local\",\n          \"is_scheduled\": false,\n          \"scheduled_delivery_date\": null,\n          \"wire\": false,\n          \"documents\": null,\n          \"document_reference\": null,\n          \"trace\": null,\n          \"error\": null,\n          \"id\": \"853ac745-5876-42b4-8ce6-5e34b6fee2b1\",\n          \"state\": \"completed\"\n        },\n        {\n          \"beneficiary\": {\n            \"id\": \"859c1b28-9990-41ff-b4a2-17961f7e8697\"\n          },\n          \"entity\": {\n            \"id\": \"f8825f22-0eec-41c5-bfc1-9ab62c0b7234\"\n          },\n          \"fee\": \"5.25\",\n          \"fee_usd\": \"5.00\",\n          \"original_fee\": \"5.25\",\n          \"source_amount\": \"61.65\",\n          \"source_currency\": \"USD\",\n          \"destination_amount\": \"49.83\",\n          \"destination_currency\": \"EUR\",\n          \"purpose_of_payment\": \"Rise Pay App Withdraw\",\n          \"rate\": \"0.937285\",\n          \"reference\": \"0x41cf876d078f86349f02f1347bc304042164cfacb2a49e1c25aee997cbf1998a_4_2023-11-29T19:06:53.521Z\",\n          \"created_date\": \"2023-11-29T19:06:54.148Z\",\n          \"expected_delivery_date\": \"2023-11-30T19:06:58.361Z\",\n          \"wallet\": {\n            \"id\": \"76fe4359-7b2b-4ca2-b0cb-08b0f68fe69e\"\n          },\n          \"payment_method\": \"local\",\n          \"is_scheduled\": false,\n          \"scheduled_delivery_date\": null,\n          \"wire\": false,\n          \"documents\": null,\n          \"document_reference\": null,\n          \"trace\": null,\n          \"error\": null,\n          \"id\": \"6ed48e9e-389a-4de7-94a2-6d1ec18f54ec\",\n          \"state\": \"completed\"\n        },\n        {\n          \"beneficiary\": {\n            \"id\": \"859c1b28-9990-41ff-b4a2-17961f7e8697\"\n          },\n          \"entity\": {\n            \"id\": \"f8825f22-0eec-41c5-bfc1-9ab62c0b7234\"\n          },\n          \"fee\": \"5.25\",\n          \"fee_usd\": \"5.00\",\n          \"original_fee\": \"5.25\",\n          \"source_amount\": \"61.60\",\n          \"source_currency\": \"USD\",\n          \"destination_amount\": \"49.83\",\n          \"destination_currency\": \"EUR\",\n          \"purpose_of_payment\": \"Rise Pay App Withdraw\",\n          \"rate\": \"0.938113\",\n          \"reference\": \"0x41cf876d078f86349f02f1347bc304042164cfacb2a49e1c25aee997cbf1998a_4_2023-11-29T18:36:22.728Z\",\n          \"created_date\": \"2023-11-29T18:36:23.345Z\",\n          \"expected_delivery_date\": \"2023-11-30T18:36:27.702Z\",\n          \"wallet\": {\n            \"id\": \"76fe4359-7b2b-4ca2-b0cb-08b0f68fe69e\"\n          },\n          \"payment_method\": \"local\",\n          \"is_scheduled\": false,\n          \"scheduled_delivery_date\": null,\n          \"wire\": false,\n          \"documents\": null,\n          \"document_reference\": null,\n          \"trace\": null,\n          \"error\": null,\n          \"id\": \"d8da5639-a7d7-4ecb-b100-c7468f574eef\",\n          \"state\": \"completed\"\n        },\n        {\n          \"beneficiary\": {\n            \"id\": \"f1e90f80-bf23-4150-91ee-6ba483489bf1\"\n          },\n          \"entity\": {\n            \"id\": \"f8825f22-0eec-41c5-bfc1-9ab62c0b7234\"\n          },\n          \"fee\": \"0.00\",\n          \"fee_usd\": \"0.00\",\n          \"original_fee\": \"0.00\",\n          \"source_amount\": \"49.83\",\n          \"source_currency\": \"EUR\",\n          \"destination_amount\": \"49.83\",\n          \"destination_currency\": \"EUR\",\n          \"purpose_of_payment\": \"Rise Pay App Withdraw\",\n          \"rate\": \"1.000000\",\n          \"reference\": \"0xe2e0ca314ba1c6066e1971dcf8f29510aba500c831d3bb77cfd483c454bf2ded_4\",\n          \"created_date\": \"2023-11-24T13:29:58.414Z\",\n          \"expected_delivery_date\": \"2023-11-28T13:30:02.129Z\",\n          \"wallet\": {\n            \"id\": \"185a23cc-bd37-4088-9e8d-6f502be91af0\"\n          },\n          \"payment_method\": \"local\",\n          \"is_scheduled\": false,\n          \"scheduled_delivery_date\": null,\n          \"wire\": false,\n          \"documents\": null,\n          \"document_reference\": null,\n          \"trace\": null,\n          \"error\": null,\n          \"id\": \"9f6a7268-455b-4f31-affe-3dc479c7e9b2\",\n          \"state\": \"completed\"\n        },\n        {\n          \"beneficiary\": {\n            \"id\": \"f1e90f80-bf23-4150-91ee-6ba483489bf1\"\n          },\n          \"entity\": {\n            \"id\": \"f8825f22-0eec-41c5-bfc1-9ab62c0b7234\"\n          },\n          \"fee\": \"0.00\",\n          \"fee_usd\": \"0.00\",\n          \"original_fee\": \"0.00\",\n          \"source_amount\": \"49.83\",\n          \"source_currency\": \"EUR\",\n          \"destination_amount\": \"49.83\",\n          \"destination_currency\": \"EUR\",\n          \"purpose_of_payment\": \"Rise Pay App Withdraw\",\n          \"rate\": \"1.000000\",\n          \"reference\": \"2023-11-22T18:49:56.558Z\",\n          \"created_date\": \"2023-11-22T18:49:57.104Z\",\n          \"expected_delivery_date\": \"2023-11-23T18:50:00.675Z\",\n          \"wallet\": {\n            \"id\": \"185a23cc-bd37-4088-9e8d-6f502be91af0\"\n          },\n          \"payment_method\": \"local\",\n          \"is_scheduled\": false,\n          \"scheduled_delivery_date\": null,\n          \"wire\": false,\n          \"documents\": null,\n          \"document_reference\": null,\n          \"trace\": null,\n          \"error\": null,\n          \"id\": \"8aca6682-6358-4f78-b665-4e05906a0166\",\n          \"state\": \"completed\"\n        },\n        {\n          \"beneficiary\": {\n            \"id\": \"f1e90f80-bf23-4150-91ee-6ba483489bf1\"\n          },\n          \"entity\": {\n            \"id\": \"f8825f22-0eec-41c5-bfc1-9ab62c0b7234\"\n          },\n          \"fee\": \"0.00\",\n          \"fee_usd\": \"0.00\",\n          \"original_fee\": \"0.00\",\n          \"source_amount\": \"49.83\",\n          \"source_currency\": \"EUR\",\n          \"destination_amount\": \"49.83\",\n          \"destination_currency\": \"EUR\",\n          \"purpose_of_payment\": \"Rise Pay App Withdraw\",\n          \"rate\": \"1.000000\",\n          \"reference\": \"85cfc4fd-135b-436f-99a1-e5e7af4c4053\",\n          \"created_date\": \"2023-11-22T18:47:36.519Z\",\n          \"expected_delivery_date\": \"2023-11-23T18:48:39.394Z\",\n          \"wallet\": {\n            \"id\": \"185a23cc-bd37-4088-9e8d-6f502be91af0\"\n          },\n          \"payment_method\": \"local\",\n          \"is_scheduled\": false,\n          \"scheduled_delivery_date\": null,\n          \"wire\": false,\n          \"documents\": null,\n          \"document_reference\": null,\n          \"trace\": null,\n          \"error\": null,\n          \"id\": \"30b6472a-8e55-42e6-9af5-e8411fd9c74b\",\n          \"state\": \"completed\"\n        },\n        {\n          \"beneficiary\": {\n            \"id\": \"f1e90f80-bf23-4150-91ee-6ba483489bf1\"\n          },\n          \"entity\": {\n            \"id\": \"f8825f22-0eec-41c5-bfc1-9ab62c0b7234\"\n          },\n          \"fee\": \"0.00\",\n          \"fee_usd\": \"0.00\",\n          \"original_fee\": \"0.00\",\n          \"source_amount\": \"49.83\",\n          \"source_currency\": \"EUR\",\n          \"destination_amount\": \"49.83\",\n          \"destination_currency\": \"EUR\",\n          \"purpose_of_payment\": \"Rise Pay App Withdraw\",\n          \"rate\": \"1.000000\",\n          \"reference\": \"undefined_undefined\",\n          \"created_date\": \"2023-11-22T14:19:09.807Z\",\n          \"expected_delivery_date\": \"2023-11-23T14:55:45.446Z\",\n          \"wallet\": {\n            \"id\": \"185a23cc-bd37-4088-9e8d-6f502be91af0\"\n          },\n          \"payment_method\": \"local\",\n          \"is_scheduled\": false,\n          \"scheduled_delivery_date\": null,\n          \"wire\": false,\n          \"documents\": null,\n          \"document_reference\": null,\n          \"trace\": null,\n          \"error\": null,\n          \"id\": \"f7edd605-b451-4abf-aab2-fe6c3714255e\",\n          \"state\": \"completed\"\n        }\n      ]\n    }\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      transfersPage:
+                        type: object
+                        properties:
+                          items:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                beneficiary:
+                                  type: object
+                                  properties:
+                                    id:
+                                      type: string
+                                      example: 03bb2933-94bd-4336-8002-0b30585ceb5c
+                                entity:
+                                  type: object
+                                  properties:
+                                    id:
+                                      type: string
+                                      example: f8825f22-0eec-41c5-bfc1-9ab62c0b7234
+                                fee:
+                                  type: string
+                                  example: '5.25'
+                                fee_usd:
+                                  type: string
+                                  example: '5.00'
+                                original_fee:
+                                  type: string
+                                  example: '5.25'
+                                source_amount:
+                                  type: string
+                                  example: '25.54'
+                                source_currency:
+                                  type: string
+                                  example: USD
+                                destination_amount:
+                                  type: string
+                                  example: '98.00'
+                                destination_currency:
+                                  type: string
+                                  example: BRL
+                                purpose_of_payment:
+                                  type: string
+                                  example: Rise Pay App Withdraw
+                                rate:
+                                  type: string
+                                  example: '5.123632'
+                                reference:
+                                  type: string
+                                  example: '0x5a3ac5f2f466e87a400ad3221ffd9c6848d575933f4953054e41cb1e471fc772_2_1702474097502'
+                                created_date:
+                                  type: string
+                                  example: '2023-12-13T13:28:18.057Z'
+                                expected_delivery_date:
+                                  type: string
+                                  example: '2023-12-14T13:28:19.847Z'
+                                wallet:
+                                  type: object
+                                  properties:
+                                    id:
+                                      type: string
+                                      example: 76fe4359-7b2b-4ca2-b0cb-08b0f68fe69e
+                                payment_method:
+                                  type: string
+                                  example: local
+                                is_scheduled:
+                                  type: boolean
+                                  example: false
+                                  default: true
+                                scheduled_delivery_date: {}
+                                wire:
+                                  type: boolean
+                                  example: false
+                                  default: true
+                                documents: {}
+                                document_reference: {}
+                                trace: {}
+                                error: {}
+                                id:
+                                  type: string
+                                  example: 842cceca-5427-4666-a981-86c6f60b912d
+                                state:
+                                  type: string
+                                  example: completed
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: node
+          code: "const axios = require('axios');\nlet data = JSON.stringify({\n  query: `query transfersPage (\n    $search_terms: String\n    $pagination: PaginationInput\n) {\n    transfersPage (\n        search_terms: $search_terms\n        pagination: $pagination\n    ) {\n                    items {\n                  id\n                  state\n                  source_amount\n                  source_currency\n                  destination_amount\n                  destination_currency\n                  rate\n                  fee\n                  created_date\n                  expected_delivery_date\n                  beneficiary {\n                    id\n                    type\n                    business_name\n                    first_name\n                    last_name\n                  }\n                  wallet {\n                    id\n                  }\n                  creator {\n                    id\n                    email\n                  }\n                  entity {\n                    id\n                    type\n                    business_name\n                    first_name\n                    last_name\n                  }\n                  funding_instructions {\n                    type\n                    message\n                    amount\n                    currency\n                    bank_name\n                    bank_address1\n                    bank_address2\n                    bank_city\n                    bank_state_province_region\n                    bank_postal_code\n                    bank_country\n                    account_number\n                    routing_code\n                    swift_bic\n                    account_holder_name\n                    account_holder_address1\n                    account_holder_address2\n                    account_holder_city\n                    account_holder_state_province_region\n                    account_holder_postal_code\n                    account_holder_country\n                    reference\n                  }\n                }\n                pagination {\n                  page\n                  page_size\n                  pages_total\n                  items_total\n                }\n            }\n\n}`,\n  variables: {\"search_terms\":\"\",\"pagination\":{\"page\":11,\"page_size\":10}}\n});\n\nlet config = {\n  method: 'post',\n  maxBodyLength: Infinity,\n  url: 'https://sandbox.external.routefusion.com/graphql',\n  headers: { \n    'Author': '', \n    'Content-Type': 'application/json'\n  },\n  data : data\n};\n\naxios.request(config)\n.then((response) => {\n  console.log(JSON.stringify(response.data));\n})\n.catch((error) => {\n  console.log(error);\n});\n"
+        - language: curl
+          code: 'curl --location ''https://sandbox.external.routefusion.com/graphql'' \
+
+            --header ''Author;'' \
+
+            --header ''Content-Type: application/json'' \
+
+            --data ''{"query":"query transfersPage (\n    $search_terms: String\n    $pagination: PaginationInput\n) {\n    transfersPage (\n        search_terms: $search_terms\n        pagination: $pagination\n    ) {\n                    items {\n                  id\n                  state\n                  source_amount\n                  source_currency\n                  destination_amount\n                  destination_currency\n                  rate\n                  fee\n                  created_date\n                  expected_delivery_date\n                  beneficiary {\n                    id\n                    type\n                    business_name\n                    first_name\n                    last_name\n                  }\n                  wallet {\n                    id\n                  }\n                  creator {\n                    id\n                    email\n                  }\n                  entity {\n                    id\n                    type\n                    business_name\n                    first_name\n                    last_name\n                  }\n                  funding_instructions {\n                    type\n                    message\n                    amount\n                    currency\n                    bank_name\n                    bank_address1\n                    bank_address2\n                    bank_city\n                    bank_state_province_region\n                    bank_postal_code\n                    bank_country\n                    account_number\n                    routing_code\n                    swift_bic\n                    account_holder_name\n                    account_holder_address1\n                    account_holder_address2\n                    account_holder_city\n                    account_holder_state_province_region\n                    account_holder_postal_code\n                    account_holder_country\n                    reference\n                  }\n                }\n                pagination {\n                  page\n                  page_size\n                  pages_total\n                  items_total\n                }\n            }\n\n}","variables":{"search_terms":"","pagination":{"page":11,"page_size":10}}}'''
+        samples-languages:
+        - node
+        - curl
+      tags:
+      - Graphql (31 Disregard)
+x-readme-fauxas: true
+x-provenance:
+  method: searched
+  source: https://docs.routefusion.com/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://docs.routefusion.com/reference/beneficiaries-page.md
+  - https://docs.routefusion.com/reference/beneficiary-required-fields-v2.md
+  - https://docs.routefusion.com/reference/beneficiary.md
+  - https://docs.routefusion.com/reference/changetransferstate.md
+  - https://docs.routefusion.com/reference/create-business-beneficiary.md
+  - https://docs.routefusion.com/reference/create-business-entity.md
+  - https://docs.routefusion.com/reference/create-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/create-personal-entity.md
+  - https://docs.routefusion.com/reference/create-representative.md
+  - https://docs.routefusion.com/reference/create-transfer.md
+  - https://docs.routefusion.com/reference/create-user.md
+  - https://docs.routefusion.com/reference/create-virtual-account.md
+  - https://docs.routefusion.com/reference/create-wallet-transfer.md
+  - https://docs.routefusion.com/reference/create-wallet.md
+  - https://docs.routefusion.com/reference/create-webhook-subscription.md
+  - https://docs.routefusion.com/reference/delete-representative.md
+  - https://docs.routefusion.com/reference/disable-webhook-subscription.md
+  - https://docs.routefusion.com/reference/entities-page.md
+  - https://docs.routefusion.com/reference/entity-beneficiaries.md
+  - https://docs.routefusion.com/reference/entity-required-fields.md
+  - https://docs.routefusion.com/reference/entity-wallets.md
+  - https://docs.routefusion.com/reference/entity.md
+  - https://docs.routefusion.com/reference/finalize-entity.md
+  - https://docs.routefusion.com/reference/finalize-transfer.md
+  - https://docs.routefusion.com/reference/finalize-wallet-transfer.md
+  - https://docs.routefusion.com/reference/findbank.md
+  - https://docs.routefusion.com/reference/get-mid-market-rate.md
+  - https://docs.routefusion.com/reference/get-rate.md
+  - https://docs.routefusion.com/reference/get-transfer-quote.md
+  - https://docs.routefusion.com/reference/incoming-transfers-page.md
+  - https://docs.routefusion.com/reference/incomingtransfer.md
+  - https://docs.routefusion.com/reference/my-user.md
+  - https://docs.routefusion.com/reference/organization-entities.md
+  - https://docs.routefusion.com/reference/organization-entity-wallets.md
+  - https://docs.routefusion.com/reference/organization-users.md
+  - https://docs.routefusion.com/reference/organization-virtual-accounts-page.md
+  - https://docs.routefusion.com/reference/representative-required-fields.md
+  - https://docs.routefusion.com/reference/resource-corridors-v2.md
+  - https://docs.routefusion.com/reference/resource-purpose-of-payment.md
+  - https://docs.routefusion.com/reference/sandbox-add-balance-to-wallet.md
+  - https://docs.routefusion.com/reference/transfer-copy.md
+  - https://docs.routefusion.com/reference/transfer-receipt.md
+  - https://docs.routefusion.com/reference/transfer.md
+  - https://docs.routefusion.com/reference/update-business-beneficiary.md
+  - https://docs.routefusion.com/reference/update-business-entity.md
+  - https://docs.routefusion.com/reference/update-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/update-representative.md
+  - https://docs.routefusion.com/reference/update-transfer.md
+  - https://docs.routefusion.com/reference/upload-transfer-document.md
+  - https://docs.routefusion.com/reference/user-entities.md
+  - https://docs.routefusion.com/reference/verified-organization-entities.md
+  - https://docs.routefusion.com/reference/wallet-funding-instructions.md
+  - https://docs.routefusion.com/reference/wallet.md
+  merge:
+    pages: 53
+    deduped: 0
+    conflicts_kept_first: 0

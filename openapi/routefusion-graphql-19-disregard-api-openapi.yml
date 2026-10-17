@@ -1,0 +1,289 @@
+openapi: 3.2.0
+info:
+  title: routefusion-api Graphql (19 Disregard) API
+  version: '1.0'
+servers:
+- url: https://sandbox.external.routefusion.com
+security:
+- {}
+tags:
+- name: Graphql (19 Disregard)
+paths:
+  /graphql (19 disregard):
+    post:
+      summary: beneficiariesPage
+      description: The beneficiariesPage query fetches all beneficiaries that belong to your organization paginated by the specified pages and search filters.
+      operationId: beneficiaries-page
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  default: '{}'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"data\": {\n        \"beneficiariesPage\": {\n          \"items\": [\n            {\n                \"id\": \"dc3c90af-6311-4fb3-973f-cd7b273080b8\",\n                \"entity\": {\n                    \"id\": \"d8882fb0-0469-48e0-8e8a-ef31ae391cd1\",\n                    \"type\": \"personal\",\n                    \"business_name\": null,\n                    \"first_name\": \"John\",\n                    \"last_name\": \"Doe\",\n                    \"state\": \"verified\",\n                    \"email\": \"test@entity.com\",\n                    \"phone\": \"9149999999\",\n                    \"phone_country\": \"US\",\n                    \"address1\": \"1305 e 6th st.\",\n                    \"address2\": \"\",\n                    \"city\": \"Austin\",\n                    \"state_province_region\": \"TX\",\n                    \"postal_code\": \"78703\",\n                    \"country\": \"US\"\n                },\n                \"creator\": {\n                    \"id\": \"bec28c73-046b-4366-9e2c-cf043bc2e196\",\n                    \"identifier\": \"demo@routefusion.com\",\n                    \"email\": \"demo@routefusion.com\",\n                    \"first_name\": \"Gilligan\",\n                    \"last_name\": \"Denver\",\n                    \"admin\": true\n                },\n                \"type\": \"business\",\n                \"email\": \"test@test.com\",\n                \"phone\": \"\",\n                \"phone_country\": \"\",\n                \"tax_number\": \"\",\n                \"first_name\": null,\n                \"last_name\": null,\n                \"address1\": \"1001 20 Avenue\",\n                \"address2\": \"\",\n                \"city\": \"didsbury\",\n                \"state_province_region\": \"AB\",\n                \"postal_code\": \"T0M 0W0\",\n                \"country\": \"CA\",\n                \"contact_first_name\": null,\n                \"contact_last_name\": null,\n                \"business_name\": \"NorthStar Academy Canada\",\n                \"name_on_bank_account\": null,\n                \"swift_bic\": \"BNDCCAMM\",\n                \"account_number\": \"13451345\",\n                \"routing_code\": \"123456789\",\n                \"currency\": \"CAD\",\n                \"bank_name\": \"Bank of Canada - Banque du Canada\",\n                \"branch_name\": null,\n                \"bank_address1\": \"234 Wellington Street West\",\n                \"bank_address2\": \"\",\n                \"bank_city\": \"ottawa\",\n                \"bank_state_province_region\": \"ON\",\n                \"bank_postal_code\": \"K1A 0G9\",\n                \"bank_country\": \"CA\"\n            },\n            {\n                \"id\": \"c5e0802a-d6ec-4062-838d-a9bd3c28a1b1\",\n                \"entity\": {\n                    \"id\": \"d8882fb0-0469-48e0-8e8a-ef31ae391cd1\",\n                    \"type\": \"personal\",\n                    \"business_name\": null,\n                    \"first_name\": \"John\",\n                    \"last_name\": \"Doe\",\n                    \"state\": \"verified\",\n                    \"email\": \"test@entity.com\",\n                    \"phone\": \"9149999999\",\n                    \"phone_country\": \"US\",\n                    \"address1\": \"1305 e 6th st.\",\n                    \"address2\": \"\",\n                    \"city\": \"Austin\",\n                    \"state_province_region\": \"TX\",\n                    \"postal_code\": \"78703\",\n                    \"country\": \"US\"\n                },\n                \"creator\": {\n                    \"id\": \"bec28c73-046b-4366-9e2c-cf043bc2e196\",\n                    \"identifier\": \"demo@routefusion.com\",\n                    \"email\": \"demo@routefusion.com\",\n                    \"first_name\": \"Gilligan\",\n                    \"last_name\": \"Denver\",\n                    \"admin\": true\n                },\n                \"type\": \"business\",\n                \"email\": \"test@bene.com\",\n                \"phone\": \"\",\n                \"phone_country\": \"\",\n                \"tax_number\": \"\",\n                \"first_name\": null,\n                \"last_name\": null,\n                \"address1\": \"12001 Metric Boulevard\",\n                \"address2\": \"\",\n                \"city\": \"Austin\",\n                \"state_province_region\": \"TX\",\n                \"postal_code\": \"78758\",\n                \"country\": \"US\",\n                \"contact_first_name\": null,\n                \"contact_last_name\": null,\n                \"business_name\": \"Northstar Apartments\",\n                \"name_on_bank_account\": null,\n                \"swift_bic\": null,\n                \"account_number\": \"235423542345\",\n                \"routing_code\": \"134553443\",\n                \"currency\": \"USD\",\n                \"bank_name\": \"Citibank\",\n                \"branch_name\": null,\n                \"bank_address1\": \"38-17 Main Street\",\n                \"bank_address2\": \"\",\n                \"bank_city\": \"\",\n                \"bank_state_province_region\": \"NY\",\n                \"bank_postal_code\": \"11354\",\n                \"bank_country\": \"US\"\n            }\n          ]\n        }\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      beneficiariesPage:
+                        type: object
+                        properties:
+                          items:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                id:
+                                  type: string
+                                  example: dc3c90af-6311-4fb3-973f-cd7b273080b8
+                                entity:
+                                  type: object
+                                  properties:
+                                    id:
+                                      type: string
+                                      example: d8882fb0-0469-48e0-8e8a-ef31ae391cd1
+                                    type:
+                                      type: string
+                                      example: personal
+                                    business_name: {}
+                                    first_name:
+                                      type: string
+                                      example: John
+                                    last_name:
+                                      type: string
+                                      example: Doe
+                                    state:
+                                      type: string
+                                      example: verified
+                                    email:
+                                      type: string
+                                      example: test@entity.com
+                                    phone:
+                                      type: string
+                                      example: '9149999999'
+                                    phone_country:
+                                      type: string
+                                      example: US
+                                    address1:
+                                      type: string
+                                      example: 1305 e 6th st.
+                                    address2:
+                                      type: string
+                                      example: ''
+                                    city:
+                                      type: string
+                                      example: Austin
+                                    state_province_region:
+                                      type: string
+                                      example: TX
+                                    postal_code:
+                                      type: string
+                                      example: '78703'
+                                    country:
+                                      type: string
+                                      example: US
+                                creator:
+                                  type: object
+                                  properties:
+                                    id:
+                                      type: string
+                                      example: bec28c73-046b-4366-9e2c-cf043bc2e196
+                                    identifier:
+                                      type: string
+                                      example: demo@routefusion.com
+                                    email:
+                                      type: string
+                                      example: demo@routefusion.com
+                                    first_name:
+                                      type: string
+                                      example: Gilligan
+                                    last_name:
+                                      type: string
+                                      example: Denver
+                                    admin:
+                                      type: boolean
+                                      example: true
+                                      default: true
+                                type:
+                                  type: string
+                                  example: business
+                                email:
+                                  type: string
+                                  example: test@test.com
+                                phone:
+                                  type: string
+                                  example: ''
+                                phone_country:
+                                  type: string
+                                  example: ''
+                                tax_number:
+                                  type: string
+                                  example: ''
+                                first_name: {}
+                                last_name: {}
+                                address1:
+                                  type: string
+                                  example: 1001 20 Avenue
+                                address2:
+                                  type: string
+                                  example: ''
+                                city:
+                                  type: string
+                                  example: didsbury
+                                state_province_region:
+                                  type: string
+                                  example: AB
+                                postal_code:
+                                  type: string
+                                  example: T0M 0W0
+                                country:
+                                  type: string
+                                  example: CA
+                                contact_first_name: {}
+                                contact_last_name: {}
+                                business_name:
+                                  type: string
+                                  example: NorthStar Academy Canada
+                                name_on_bank_account: {}
+                                swift_bic:
+                                  type: string
+                                  example: BNDCCAMM
+                                account_number:
+                                  type: string
+                                  example: '13451345'
+                                routing_code:
+                                  type: string
+                                  example: '123456789'
+                                currency:
+                                  type: string
+                                  example: CAD
+                                bank_name:
+                                  type: string
+                                  example: Bank of Canada - Banque du Canada
+                                branch_name: {}
+                                bank_address1:
+                                  type: string
+                                  example: 234 Wellington Street West
+                                bank_address2:
+                                  type: string
+                                  example: ''
+                                bank_city:
+                                  type: string
+                                  example: ottawa
+                                bank_state_province_region:
+                                  type: string
+                                  example: 'ON'
+                                bank_postal_code:
+                                  type: string
+                                  example: K1A 0G9
+                                bank_country:
+                                  type: string
+                                  example: CA
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: node
+          code: "// query beneficiariesPage\n\nvar axios = require('axios');\nvar data = JSON.stringify({\n  query: `query beneficiariesPage ($search_terms: String, pagination: PaginationInput!, filters: [FilterInput]) {\n    beneficiariesPage (search_terms: $search_terms, pagination: $pagination, filters: $filters) {\n      items {\n        id\n        entity {\n          id\n        }\n        creator {\n          id\n        }\n        type\n        email\n        phone\n        phone_country\n        tax_number\n        first_name\n        last_name\n        address1\n        address2\n        city\n        state_province_region\n        postal_code\n        country\n        contact_first_name\n        contact_last_name\n        business_name\n        name_on_bank_account\n        swift_bic\n        account_number\n        routing_code\n        currency\n        bank_name\n        branch_name\n        bank_address1\n        bank_address2\n        bank_city\n        bank_state_province_region\n        bank_postal_code\n        bank_country\n      }\n    }\n}`,\n  variables: { \"pagination\": { \"page\": 1, \"page_size\": 20 }, \"filters\": [{ \"key\": \"country\", \"values\" [\"US\"] }] }\n});\n\nvar config = {\n  method: 'post',\n  url: 'https://sandbox.external.routefusion.com/graphql',\n  headers: {\n    'Authorization': 'Bearer <your token>',\n    'Content-Type': 'application/json'\n  },\n  data : data\n};\n\naxios(config)\n.then(function (response) {\n  console.log(JSON.stringify(response.data));\n})\n.catch(function (error) {\n  console.log(error);\n});"
+        - language: curl
+          code: '# query beneficiariesPage
+
+
+            curl --location --request POST ''https://sandbox.external.routefusion.com/graphql'' \
+
+            --header ''Content-Type: application/json'' \
+
+            --header ''Authorization: Bearer <your token> '' \
+
+            --data-raw ''{\"query\":\"query beneficiariesPage ($search_terms: String, pagination: PaginationInput!, filters: [FilterInput]) {\\n    beneficiariesPage (search_terms: $search_terms, pagination: $pagination, filters: $filters) {\\n        items {\\n        id\\n        entity {\\n            id\\n            type\\n            business_name\\n            first_name\\n            last_name\\n            state\\n            email\\n            phone\\n            phone_country\\n            address1\\n            address2\\n            city\\n            state_province_region\\n            postal_code\\n            country\\n        }\\n        creator {\\n            id\\n            identifier\\n            email\\n            first_name\\n            last_name\\n            admin\\n        }\\n        type\\n        email\\n        phone\\n            phone_country\\n        tax_number\\n        first_name\\n        last_name\\n        address1\\n        address2\\n        city\\n        state_province_region\\n        postal_code\\n        country\\n        contact_first_name\\n        contact_last_name\\n        business_name\\n        name_on_bank_account\\n        swift_bic\\n        account_number\\n        routing_code\\n        currency\\n        bank_name\\n        branch_name\\n        bank_address1\\n        bank_address2\\n        bank_city\\n        bank_state_province_region\\n        bank_postal_code\\n        bank_country\\n    }\\n}\\n}\",\"variables\":{\"pagination\":{\"page\":1,\"page_size\":20}, \"filters\": [{\"key\":\"country\",\"values\": [\"US\"]}] }}'''
+        samples-languages:
+        - node
+        - curl
+      tags:
+      - Graphql (19 Disregard)
+x-readme-fauxas: true
+x-provenance:
+  method: searched
+  source: https://docs.routefusion.com/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://docs.routefusion.com/reference/beneficiaries-page.md
+  - https://docs.routefusion.com/reference/beneficiary-required-fields-v2.md
+  - https://docs.routefusion.com/reference/beneficiary.md
+  - https://docs.routefusion.com/reference/changetransferstate.md
+  - https://docs.routefusion.com/reference/create-business-beneficiary.md
+  - https://docs.routefusion.com/reference/create-business-entity.md
+  - https://docs.routefusion.com/reference/create-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/create-personal-entity.md
+  - https://docs.routefusion.com/reference/create-representative.md
+  - https://docs.routefusion.com/reference/create-transfer.md
+  - https://docs.routefusion.com/reference/create-user.md
+  - https://docs.routefusion.com/reference/create-virtual-account.md
+  - https://docs.routefusion.com/reference/create-wallet-transfer.md
+  - https://docs.routefusion.com/reference/create-wallet.md
+  - https://docs.routefusion.com/reference/create-webhook-subscription.md
+  - https://docs.routefusion.com/reference/delete-representative.md
+  - https://docs.routefusion.com/reference/disable-webhook-subscription.md
+  - https://docs.routefusion.com/reference/entities-page.md
+  - https://docs.routefusion.com/reference/entity-beneficiaries.md
+  - https://docs.routefusion.com/reference/entity-required-fields.md
+  - https://docs.routefusion.com/reference/entity-wallets.md
+  - https://docs.routefusion.com/reference/entity.md
+  - https://docs.routefusion.com/reference/finalize-entity.md
+  - https://docs.routefusion.com/reference/finalize-transfer.md
+  - https://docs.routefusion.com/reference/finalize-wallet-transfer.md
+  - https://docs.routefusion.com/reference/findbank.md
+  - https://docs.routefusion.com/reference/get-mid-market-rate.md
+  - https://docs.routefusion.com/reference/get-rate.md
+  - https://docs.routefusion.com/reference/get-transfer-quote.md
+  - https://docs.routefusion.com/reference/incoming-transfers-page.md
+  - https://docs.routefusion.com/reference/incomingtransfer.md
+  - https://docs.routefusion.com/reference/my-user.md
+  - https://docs.routefusion.com/reference/organization-entities.md
+  - https://docs.routefusion.com/reference/organization-entity-wallets.md
+  - https://docs.routefusion.com/reference/organization-users.md
+  - https://docs.routefusion.com/reference/organization-virtual-accounts-page.md
+  - https://docs.routefusion.com/reference/representative-required-fields.md
+  - https://docs.routefusion.com/reference/resource-corridors-v2.md
+  - https://docs.routefusion.com/reference/resource-purpose-of-payment.md
+  - https://docs.routefusion.com/reference/sandbox-add-balance-to-wallet.md
+  - https://docs.routefusion.com/reference/transfer-copy.md
+  - https://docs.routefusion.com/reference/transfer-receipt.md
+  - https://docs.routefusion.com/reference/transfer.md
+  - https://docs.routefusion.com/reference/update-business-beneficiary.md
+  - https://docs.routefusion.com/reference/update-business-entity.md
+  - https://docs.routefusion.com/reference/update-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/update-representative.md
+  - https://docs.routefusion.com/reference/update-transfer.md
+  - https://docs.routefusion.com/reference/upload-transfer-document.md
+  - https://docs.routefusion.com/reference/user-entities.md
+  - https://docs.routefusion.com/reference/verified-organization-entities.md
+  - https://docs.routefusion.com/reference/wallet-funding-instructions.md
+  - https://docs.routefusion.com/reference/wallet.md
+  merge:
+    pages: 53
+    deduped: 0
+    conflicts_kept_first: 0

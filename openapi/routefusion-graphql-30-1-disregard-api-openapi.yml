@@ -1,0 +1,189 @@
+openapi: 3.2.0
+info:
+  title: routefusion-api Graphql (30 1 Disregard) API
+  version: '1.0'
+servers:
+- url: https://sandbox.external.routefusion.com
+security:
+- {}
+tags:
+- name: Graphql (30 1 Disregard)
+paths:
+  /graphql (30-1 disregard):
+    post:
+      summary: resourcePurposeOfPayment
+      description: This query returns a list of available Purpose of Payment and their desciptions.
+      operationId: transfer-1
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value:
+                    data:
+                      resourcePurposesOfPayment:
+                      - enum: payroll
+                        description: Payroll or contractor payment
+                      - enum: purchase_of_services
+                        description: Purchase of a service
+                      - enum: purchase_of_goods
+                        description: Purchase of a good
+                      - enum: treasury
+                        description: Intercompany transfer
+                      - enum: family_support
+                        description: Family maintenance
+                      - enum: investment
+                        description: Investment related payment
+                      - enum: loan_repayment
+                        description: Repayment of a loan
+                      - enum: medical
+                        description: Medical related payment
+                      - enum: travel
+                        description: Travel Related Payment
+                      - enum: education
+                        description: Education related payment
+                      - enum: advertising
+                        description: Advertising, marketing, and public relations-related expenses
+                      - enum: advisor_fees
+                        description: Fees for advisory, technical, academic or specialist assistance
+                      - enum: real_estate
+                        description: Property or land purchase
+                      - enum: royalties
+                        description: Royalty, trademark, patent and copyright fees
+                      - enum: taxes
+                        description: Tax payment
+                      - enum: utilities
+                        description: Utility bills
+                      - enum: commissions_or_fees
+                        description: Commissions or Fees
+                      - enum: commission_on_goods
+                        description: Commission on goods
+                      - enum: commission_on_services
+                        description: Commission on services
+                      - enum: accounting_services
+                        description: Accounting services payment
+                      - enum: exhibition_services
+                        description: Exhibition services payment
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      resourcePurposesOfPayment:
+                        type: array
+                        items:
+                          properties:
+                            enum:
+                              type: string
+                              description: enum value of the purpose of payment
+                            description:
+                              type: string
+                              description: Definition of enum value
+                          type: object
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      x-readme:
+        code-samples:
+        - language: node
+          code: "// query transfer\n\nvar axios = require('axios');\nvar data = JSON.stringify({\n  query: `query ResourcePurposesOfPayment {\n    resourcePurposesOfPayment {\n      enum\n      description\n    }\n\t}`\n});\n\nvar config = {\n  method: 'post',\n  url: 'https://sandbox.external.routefusion.com/graphql',\n  headers: {\n    'Content-Type': 'application/json'\n  },\n  data : data\n};\n\naxios(config)\n.then(function (response) {\n  console.log(JSON.stringify(response.data));\n})\n.catch(function (error) {\n  console.log(error);\n});"
+        - language: curl
+          code: '# query transfer
+
+
+            curl --location --request POST ''https://sandbox.external.routefusion.com/graphql'' \
+
+            --header ''Content-Type: application/json'' \
+
+            --data-raw ''{"query": "query ResourcePurposesOfPayment {resourcePurposesOfPayment {enum, description}}"}'''
+        samples-languages:
+        - node
+        - curl
+      x-internal: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+              required:
+              - query
+      tags:
+      - Graphql (30 1 Disregard)
+x-readme-fauxas: true
+x-provenance:
+  method: searched
+  source: https://docs.routefusion.com/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://docs.routefusion.com/reference/beneficiaries-page.md
+  - https://docs.routefusion.com/reference/beneficiary-required-fields-v2.md
+  - https://docs.routefusion.com/reference/beneficiary.md
+  - https://docs.routefusion.com/reference/changetransferstate.md
+  - https://docs.routefusion.com/reference/create-business-beneficiary.md
+  - https://docs.routefusion.com/reference/create-business-entity.md
+  - https://docs.routefusion.com/reference/create-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/create-personal-entity.md
+  - https://docs.routefusion.com/reference/create-representative.md
+  - https://docs.routefusion.com/reference/create-transfer.md
+  - https://docs.routefusion.com/reference/create-user.md
+  - https://docs.routefusion.com/reference/create-virtual-account.md
+  - https://docs.routefusion.com/reference/create-wallet-transfer.md
+  - https://docs.routefusion.com/reference/create-wallet.md
+  - https://docs.routefusion.com/reference/create-webhook-subscription.md
+  - https://docs.routefusion.com/reference/delete-representative.md
+  - https://docs.routefusion.com/reference/disable-webhook-subscription.md
+  - https://docs.routefusion.com/reference/entities-page.md
+  - https://docs.routefusion.com/reference/entity-beneficiaries.md
+  - https://docs.routefusion.com/reference/entity-required-fields.md
+  - https://docs.routefusion.com/reference/entity-wallets.md
+  - https://docs.routefusion.com/reference/entity.md
+  - https://docs.routefusion.com/reference/finalize-entity.md
+  - https://docs.routefusion.com/reference/finalize-transfer.md
+  - https://docs.routefusion.com/reference/finalize-wallet-transfer.md
+  - https://docs.routefusion.com/reference/findbank.md
+  - https://docs.routefusion.com/reference/get-mid-market-rate.md
+  - https://docs.routefusion.com/reference/get-rate.md
+  - https://docs.routefusion.com/reference/get-transfer-quote.md
+  - https://docs.routefusion.com/reference/incoming-transfers-page.md
+  - https://docs.routefusion.com/reference/incomingtransfer.md
+  - https://docs.routefusion.com/reference/my-user.md
+  - https://docs.routefusion.com/reference/organization-entities.md
+  - https://docs.routefusion.com/reference/organization-entity-wallets.md
+  - https://docs.routefusion.com/reference/organization-users.md
+  - https://docs.routefusion.com/reference/organization-virtual-accounts-page.md
+  - https://docs.routefusion.com/reference/representative-required-fields.md
+  - https://docs.routefusion.com/reference/resource-corridors-v2.md
+  - https://docs.routefusion.com/reference/resource-purpose-of-payment.md
+  - https://docs.routefusion.com/reference/sandbox-add-balance-to-wallet.md
+  - https://docs.routefusion.com/reference/transfer-copy.md
+  - https://docs.routefusion.com/reference/transfer-receipt.md
+  - https://docs.routefusion.com/reference/transfer.md
+  - https://docs.routefusion.com/reference/update-business-beneficiary.md
+  - https://docs.routefusion.com/reference/update-business-entity.md
+  - https://docs.routefusion.com/reference/update-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/update-representative.md
+  - https://docs.routefusion.com/reference/update-transfer.md
+  - https://docs.routefusion.com/reference/upload-transfer-document.md
+  - https://docs.routefusion.com/reference/user-entities.md
+  - https://docs.routefusion.com/reference/verified-organization-entities.md
+  - https://docs.routefusion.com/reference/wallet-funding-instructions.md
+  - https://docs.routefusion.com/reference/wallet.md
+  merge:
+    pages: 53
+    deduped: 0
+    conflicts_kept_first: 0

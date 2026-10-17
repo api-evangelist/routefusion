@@ -1,0 +1,138 @@
+openapi: 3.2.0
+info:
+  title: routefusion-api Graphql (38 Disregard) API
+  version: '1.0'
+servers:
+- url: https://sandbox.external.routefusion.com
+security:
+- {}
+tags:
+- name: Graphql (38 Disregard)
+paths:
+  /graphql (38 disregard):
+    post:
+      summary: createTransfer
+      description: The createTransfer mutation accepts initial data for transfer. This does not initiate the transfer.
+      operationId: create-transfer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  default: '{}'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"data\": {\n        \"createTransfer\": \"18ea46e5-2c36-4862-9eac-adc44364df7b\"\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      createTransfer:
+                        type: string
+                        example: 18ea46e5-2c36-4862-9eac-adc44364df7b
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: node
+          code: "// mutation createTransfer\n\nvar axios = require('axios');\nvar data = JSON.stringify({\n  query: `mutation createTransfer ($user_id: UUID!, $entity_id: UUID!, $source_amount: String, $wallet_id: UUID!, $destination_amount: String, $account_id: UUID, $beneficiary_id: UUID!, $purpose_of_payment: String!, $reference: String) {\n    createTransfer (user_id: $user_id, entity_id: $entity_id, source_amount: $source_amount, wallet_id: $wallet_id, destination_amount: $destination_amount, account_id: $account_id, beneficiary_id: $beneficiary_id, purpose_of_payment: $purpose_of_payment, reference: $reference)\n}`,\n  variables: {\"user_id\":\"28291265-e6f7-488c-94c4-5905bbcf779a\",\"entity_id\":\"a530debe-898f-447b-836c-1ba7d3001d91\",\"source_amount\":\"100\",\"wallet_id\":\"11b6747c-6706-4fe7-8112-10329fd07cf1\",\"beneficiary_id\":\"63b6747c-6706-4fe7-8112-10329fd07cf1\",\"purpose_of_payment\":\"athletic services\",\"reference\":\"hit 3000\"}\n});\n\nvar config = {\n  method: 'post',\n  url: 'https://sandbox.external.routefusion.com/graphql',\n  headers: {\n    'Authorization': 'Bearer <your token>',\n    'Content-Type': 'application/json'\n  },\n  data : data\n};\n\naxios(config)\n.then(function (response) {\n  console.log(JSON.stringify(response.data));\n})\n.catch(function (error) {\n  console.log(error);\n});"
+        - language: curl
+          code: '# mutation craeteTransfer
+
+
+            curl --location --request POST ''https://sandbox.external.routefusion.com/graphql'' \
+
+            --header ''Authorization: Bearer <your token>'' \
+
+            --header ''Content-Type: application/json'' \
+
+            --data-raw ''{\"query\":\"mutation createTransfer ($user_id: UUID!, $entity_id: UUID!, $source_amount: String, $wallet_id: UUID!, $destination_amount: String, $account_id: UUID, $beneficiary_id: UUID!, $purpose_of_payment: String!, $reference: String) {\\n    createTransfer (user_id: $user_id, entity_id: $entity_id, source_amount: $source_amount, wallet_id: $wallet_id, destination_amount: $destination_amount, account_id: $account_id, beneficiary_id: $beneficiary_id, purpose_of_payment: $purpose_of_payment, reference: $reference)\\n}\",\"variables\":{\"user_id\":\"28291265-e6f7-488c-94c4-5905bbcf779a\",\"entity_id\":\"a530debe-898f-447b-836c-1ba7d3001d91\",\"source_amount\":\"100\",\"wallet_id\":\"11291265-e6f7-488c-94c4-5905bbcf779a\",\"beneficiary_id\":\"63b6747c-6706-4fe7-8112-10329fd07cf1\",\"purpose_of_payment\":\"athletic services\",\"reference\":\"hit 3000\"}}'''
+        samples-languages:
+        - node
+        - curl
+      tags:
+      - Graphql (38 Disregard)
+x-readme-fauxas: true
+x-provenance:
+  method: searched
+  source: https://docs.routefusion.com/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://docs.routefusion.com/reference/beneficiaries-page.md
+  - https://docs.routefusion.com/reference/beneficiary-required-fields-v2.md
+  - https://docs.routefusion.com/reference/beneficiary.md
+  - https://docs.routefusion.com/reference/changetransferstate.md
+  - https://docs.routefusion.com/reference/create-business-beneficiary.md
+  - https://docs.routefusion.com/reference/create-business-entity.md
+  - https://docs.routefusion.com/reference/create-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/create-personal-entity.md
+  - https://docs.routefusion.com/reference/create-representative.md
+  - https://docs.routefusion.com/reference/create-transfer.md
+  - https://docs.routefusion.com/reference/create-user.md
+  - https://docs.routefusion.com/reference/create-virtual-account.md
+  - https://docs.routefusion.com/reference/create-wallet-transfer.md
+  - https://docs.routefusion.com/reference/create-wallet.md
+  - https://docs.routefusion.com/reference/create-webhook-subscription.md
+  - https://docs.routefusion.com/reference/delete-representative.md
+  - https://docs.routefusion.com/reference/disable-webhook-subscription.md
+  - https://docs.routefusion.com/reference/entities-page.md
+  - https://docs.routefusion.com/reference/entity-beneficiaries.md
+  - https://docs.routefusion.com/reference/entity-required-fields.md
+  - https://docs.routefusion.com/reference/entity-wallets.md
+  - https://docs.routefusion.com/reference/entity.md
+  - https://docs.routefusion.com/reference/finalize-entity.md
+  - https://docs.routefusion.com/reference/finalize-transfer.md
+  - https://docs.routefusion.com/reference/finalize-wallet-transfer.md
+  - https://docs.routefusion.com/reference/findbank.md
+  - https://docs.routefusion.com/reference/get-mid-market-rate.md
+  - https://docs.routefusion.com/reference/get-rate.md
+  - https://docs.routefusion.com/reference/get-transfer-quote.md
+  - https://docs.routefusion.com/reference/incoming-transfers-page.md
+  - https://docs.routefusion.com/reference/incomingtransfer.md
+  - https://docs.routefusion.com/reference/my-user.md
+  - https://docs.routefusion.com/reference/organization-entities.md
+  - https://docs.routefusion.com/reference/organization-entity-wallets.md
+  - https://docs.routefusion.com/reference/organization-users.md
+  - https://docs.routefusion.com/reference/organization-virtual-accounts-page.md
+  - https://docs.routefusion.com/reference/representative-required-fields.md
+  - https://docs.routefusion.com/reference/resource-corridors-v2.md
+  - https://docs.routefusion.com/reference/resource-purpose-of-payment.md
+  - https://docs.routefusion.com/reference/sandbox-add-balance-to-wallet.md
+  - https://docs.routefusion.com/reference/transfer-copy.md
+  - https://docs.routefusion.com/reference/transfer-receipt.md
+  - https://docs.routefusion.com/reference/transfer.md
+  - https://docs.routefusion.com/reference/update-business-beneficiary.md
+  - https://docs.routefusion.com/reference/update-business-entity.md
+  - https://docs.routefusion.com/reference/update-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/update-representative.md
+  - https://docs.routefusion.com/reference/update-transfer.md
+  - https://docs.routefusion.com/reference/upload-transfer-document.md
+  - https://docs.routefusion.com/reference/user-entities.md
+  - https://docs.routefusion.com/reference/verified-organization-entities.md
+  - https://docs.routefusion.com/reference/wallet-funding-instructions.md
+  - https://docs.routefusion.com/reference/wallet.md
+  merge:
+    pages: 53
+    deduped: 0
+    conflicts_kept_first: 0

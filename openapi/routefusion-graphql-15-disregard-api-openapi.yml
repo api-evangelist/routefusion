@@ -1,0 +1,165 @@
+openapi: 3.2.0
+info:
+  title: routefusion-api Graphql (15 Disregard) API
+  version: '1.0'
+servers:
+- url: https://sandbox.external.routefusion.com
+security:
+- {}
+tags:
+- name: Graphql (15 Disregard)
+paths:
+  /graphql (15 disregard):
+    post:
+      summary: finalizeEntity
+      description: Indicates the entity is ready to execute the onboarding process. Once the entity is finalized, Routefusion will send the entity through the necessary compliance reviews. The entity will immediately move to a pending state after finalizing.
+      operationId: finalize-entity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  default: '{}'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Success:
+                  value: "{\n    \"data\": {\n        \"finalizeEntity\": {\n        \t\t\"success\": true,\n            \"error\": null,\n            \"validations\": null\n        }\n    }\n}"
+                validation error:
+                  value: "{\n  \"data\": {\n    \"finalizeEntity\": {\n      \"error\": \"Entity invalid. Please resolve validation errors and finalize again.\",\n      \"success\": false,\n      \"validations\": [\n        {\n          \"resource\": \"Entity\",\n          \"id\": \"89c2926c-13c8-4c54-b997-cd25c99786b3\",\n          \"message\": \"Entity is missing required fields\",\n          \"missingKeys\": [\n            \"business_type\",\n            \"business_city\",\n            \"business_state_province_region\",\n            \"business_postal_code\",\n            \"phone\"\n          ]\n        },\n        {\n          \"resource\": \"Entity\",\n          \"id\": \"89c2926c-13c8-4c54-b997-cd25c99786b3\",\n          \"message\": \"Entity documents are missing or incomplete from a matching set\",\n          \"missingKeys\": null\n        },\n        {\n          \"resource\": \"Representative\",\n          \"id\": \"89c2926c-13c8-4c54-b997-cd25c99786b3\",\n          \"message\": \"Representative is missing\",\n          \"missingKeys\": null\n        }\n      ]\n    }\n  }\n}"
+              schema:
+                oneOf:
+                - title: Success
+                  type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        finalizeEntity:
+                          type: object
+                          properties:
+                            success:
+                              type: boolean
+                              example: true
+                              default: true
+                            error: {}
+                            validations: {}
+                - title: validation error
+                  type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        finalizeEntity:
+                          type: object
+                          properties:
+                            error:
+                              type: string
+                              example: Entity invalid. Please resolve validation errors and finalize again.
+                            success:
+                              type: boolean
+                              example: false
+                              default: true
+                            validations:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  resource:
+                                    type: string
+                                    example: Entity
+                                  id:
+                                    type: string
+                                    example: 89c2926c-13c8-4c54-b997-cd25c99786b3
+                                  message:
+                                    type: string
+                                    example: Entity is missing required fields
+                                  missingKeys:
+                                    type: array
+                                    items:
+                                      type: string
+                                      example: business_type
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: node
+          code: "const token = process.env.RF_KEY;\nconst axios = require('axios');\n\nlet data = JSON.stringify({\n  query: `mutation finalizeEntity (\n    $entity_id: UUID\n) {\n    finalizeEntity (\n        entity_id: $entity_id\n    ) {\n        success\n        error\n        validations {\n            id\n            resource\n            message\n            missingKeys\n        }\n    }\n}`,\n  variables: {\"entity_id\":\"0c5f6e46-a0eb-4d8d-9498-df5a541c0548\"}\n});\n\nlet config = {\n  method: 'post',\n  maxBodyLength: Infinity,\n  url: 'https://sandbox.external.routefusion.com/graphql',\n  headers: { \n    'Content-Type': 'application/json', \n    'Authorization': `Bearer ${token}`\n  },\n  data : data\n};\n\naxios.request(config)\n.then((response) => {\n  console.log(JSON.stringify(response.data));\n})\n.catch((error) => {\n  console.log(error);\n});\n"
+          name: Nodejs
+        - language: curl
+          code: "curl -X POST https://sandbox.external.routefusion.com/graphql \\\n-H \"Content-Type: application/json\" \\\n-H \"Authorization: Bearer YOUR_API_TOKEN\" \\\n-d '{\n  \"query\": \"mutation finalizeEntity ($entity_id: UUID) { finalizeEntity (entity_id: $entity_id) { success error } }\",\n  \"variables\": { \"entity_id\": \"0c5f6e46-a0eb-4d8d-9498-df5a541c0548\" }\n}'\n"
+        samples-languages:
+        - node
+        - curl
+      tags:
+      - Graphql (15 Disregard)
+x-readme-fauxas: true
+x-provenance:
+  method: searched
+  source: https://docs.routefusion.com/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://docs.routefusion.com/reference/beneficiaries-page.md
+  - https://docs.routefusion.com/reference/beneficiary-required-fields-v2.md
+  - https://docs.routefusion.com/reference/beneficiary.md
+  - https://docs.routefusion.com/reference/changetransferstate.md
+  - https://docs.routefusion.com/reference/create-business-beneficiary.md
+  - https://docs.routefusion.com/reference/create-business-entity.md
+  - https://docs.routefusion.com/reference/create-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/create-personal-entity.md
+  - https://docs.routefusion.com/reference/create-representative.md
+  - https://docs.routefusion.com/reference/create-transfer.md
+  - https://docs.routefusion.com/reference/create-user.md
+  - https://docs.routefusion.com/reference/create-virtual-account.md
+  - https://docs.routefusion.com/reference/create-wallet-transfer.md
+  - https://docs.routefusion.com/reference/create-wallet.md
+  - https://docs.routefusion.com/reference/create-webhook-subscription.md
+  - https://docs.routefusion.com/reference/delete-representative.md
+  - https://docs.routefusion.com/reference/disable-webhook-subscription.md
+  - https://docs.routefusion.com/reference/entities-page.md
+  - https://docs.routefusion.com/reference/entity-beneficiaries.md
+  - https://docs.routefusion.com/reference/entity-required-fields.md
+  - https://docs.routefusion.com/reference/entity-wallets.md
+  - https://docs.routefusion.com/reference/entity.md
+  - https://docs.routefusion.com/reference/finalize-entity.md
+  - https://docs.routefusion.com/reference/finalize-transfer.md
+  - https://docs.routefusion.com/reference/finalize-wallet-transfer.md
+  - https://docs.routefusion.com/reference/findbank.md
+  - https://docs.routefusion.com/reference/get-mid-market-rate.md
+  - https://docs.routefusion.com/reference/get-rate.md
+  - https://docs.routefusion.com/reference/get-transfer-quote.md
+  - https://docs.routefusion.com/reference/incoming-transfers-page.md
+  - https://docs.routefusion.com/reference/incomingtransfer.md
+  - https://docs.routefusion.com/reference/my-user.md
+  - https://docs.routefusion.com/reference/organization-entities.md
+  - https://docs.routefusion.com/reference/organization-entity-wallets.md
+  - https://docs.routefusion.com/reference/organization-users.md
+  - https://docs.routefusion.com/reference/organization-virtual-accounts-page.md
+  - https://docs.routefusion.com/reference/representative-required-fields.md
+  - https://docs.routefusion.com/reference/resource-corridors-v2.md
+  - https://docs.routefusion.com/reference/resource-purpose-of-payment.md
+  - https://docs.routefusion.com/reference/sandbox-add-balance-to-wallet.md
+  - https://docs.routefusion.com/reference/transfer-copy.md
+  - https://docs.routefusion.com/reference/transfer-receipt.md
+  - https://docs.routefusion.com/reference/transfer.md
+  - https://docs.routefusion.com/reference/update-business-beneficiary.md
+  - https://docs.routefusion.com/reference/update-business-entity.md
+  - https://docs.routefusion.com/reference/update-personal-beneficiary.md
+  - https://docs.routefusion.com/reference/update-representative.md
+  - https://docs.routefusion.com/reference/update-transfer.md
+  - https://docs.routefusion.com/reference/upload-transfer-document.md
+  - https://docs.routefusion.com/reference/user-entities.md
+  - https://docs.routefusion.com/reference/verified-organization-entities.md
+  - https://docs.routefusion.com/reference/wallet-funding-instructions.md
+  - https://docs.routefusion.com/reference/wallet.md
+  merge:
+    pages: 53
+    deduped: 0
+    conflicts_kept_first: 0
