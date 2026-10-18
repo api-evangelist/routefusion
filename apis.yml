@@ -63,6 +63,16 @@ tags:
 - Payments
 - Cross-Border Payments
 - Global Payments
+- Foreign Exchange
+- Wallets
+- GraphQL
+- Stablecoins
+tags_raw:
+- Company
+- Fintech
+- Payments
+- Cross-Border Payments
+- Global Payments
 - FX
 - Wallets
 - GraphQL
@@ -1149,6 +1159,8 @@ apis:
   humanURL: https://docs.routefusion.com/reference/getting-started-with-your-api
   baseURL: https://external.routefusion.com/graphql
   tags:
+  - Graphql (42 Disregard)
+  tags_raw:
   - Graphql (42disregard)
   properties:
   - type: OpenAPI
@@ -1668,6 +1680,8 @@ apis:
   humanURL: https://docs.routefusion.com/reference/getting-started-with-your-api
   baseURL: https://external.routefusion.com/graphql
   tags:
+  - GraphQL
+  tags_raw:
   - Graph QL
   properties:
   - type: OpenAPI
